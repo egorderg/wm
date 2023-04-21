@@ -1,0 +1,20 @@
+#!/bin/bash
+
+file="/sys/class/backlight/amdgpu_bl0/brightness"
+level=$(cat $file)
+max_level=$(cat /sys/class/backlight/amdgpu_bl0/max_brightness)
+step=10
+
+if [[ "$#" -eq 0 ]]; then
+  echo $level
+elif [[ "$1" = "dec" ]]; then
+  new_value=$(( level - step ))
+  if [[ $new_value -gt 0 ]]; then
+    echo $new_value > $file
+  fi
+elif [[ "$1" = "inc" ]]; then
+  new_value=$(( level + step ))
+  if [[ $new_value -lt max_level ]]; then
+    echo $new_value > $file
+  fi
+fi

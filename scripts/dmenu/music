@@ -1,0 +1,100 @@
+#!/bin/bash
+
+DMENU='dmenu -i'
+MUSIC_PATH="~/Music"
+DONE=false
+
+play() {
+  mpc repeat on
+
+  COMMAND=$(echo -e "playlists\nsong\nall" | $DMENU -p play:)
+  if ! [ $COMMAND ]; then
+    return;
+  fi
+
+  case $COMMAND in
+    "playlists")
+      ;;
+    "song")
+      SONG=$(mpc ls | $DMENU -l 20 -p "song:")
+      if [[ $SONG ]]; then
+        DONE=true
+        mpc clear
+        mpc add "$SONG"
+        mpc play
+      fi
+      ;;
+    "all")
+      DONE=true
+      mpc clear
+      mpc add /
+      mpc play
+      ;;
+  esac
+
+  # queue (plays the selected song in queue (mpc playlist)), playlist (play playlist), song (single song), all (mpc clear; mpc add /)
+}
+
+add() {
+  SONG=$(mpc ls | $DMENU -l 20 -p "add:")
+  if [[ $SONG ]]; then
+    DONE=true
+    mpc insert "$SONG"
+  fi
+}
+
+playlists() {
+  # save (save current queue as playlist mpc save <name>), edit, remove
+  exit 0
+}
+
+queue() {
+  SONG=$(mpc playlist | grep -n '.*' | $DMENU -l 20 -p "queue:")
+  if [[ $SONG ]]; then
+    SONG=$(echo $SONG | cut -d ":" -f 1)
+    DONE=true
+    mpc play $SONG
+  fi
+}
+
+download() {
+  URL=$(echo -n | $DMENU -p url:)
+  if [ $URL ]; then
+    NAME=$(echo -n | $DMENU -p name:)
+    if [ "$NAME" ]; then
+      DONE=true
+      echo "Downloading: $NAME" > /tmp/dmenu_com
+      yt-dlp -f 'ba' -x --audio-format mp3 -o "$MUSIC_PATH/$NAME.%(ext)s" $URL
+      rm /tmp/dmenu_com
+    fi
+  fi
+}
+
+while ! $DONE; do
+
+  COMMAND=$(echo -e "play\nadd\nplaylists\nqueue\nrandom\nrepeat\nclear\ndownload" | $DMENU -p music:)
+  if ! [ $COMMAND ]; then
+    break;
+  fi
+
+  case $COMMAND in
+    "play") play ;;
+    "add") add ;;
+    "playlists") playlists ;;
+    "queue") queue ;;
+    "download") download ;;
+    "random")
+      DONE=true
+      mpc random
+      ;;
+    "repeat")
+      DONE=true
+      mpc single
+      ;;
+    "clear")
+      DONE=true
+      mpc clear
+      ;;
+  esac
+
+done

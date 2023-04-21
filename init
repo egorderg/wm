@@ -1,0 +1,6 @@
+xset mouse 3 6
+xset r rate 250 40
+unclutter -idle 3 &
+
+~/.de/scripts/fehbg &
+~/.de/scripts/bar &

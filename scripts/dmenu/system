@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DMENU='dmenu -i'
+COMMAND=$(echo -e "shutdown\nreboot\nexit dwm" | $DMENU -p system:);
+
+case $COMMAND in
+
+  "shutdown") shutdown now & ;;
+  "reboot") reboot & ;;
+  "exit dwm") pkill dwm & ;;
+
+esac

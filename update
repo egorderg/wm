@@ -1,0 +1,73 @@
+#!/bin/bash
+
+read -p "Overwrite all configurations. Are you sure? (y/n): " -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
+
+btop() {
+  mkdir -p "$HOME/.config/btop"
+  cp "./btop/btop.conf" "$HOME/.config/btop/btop.conf"
+  echo "btop"
+}
+
+cava() {
+  mkdir -p "$HOME/.config/cava"
+  cp "./cava/config" "$HOME/.config/cava/config"
+  echo "cava"
+}
+
+vscode() {
+  mkdir -p "$HOME/.config/Code/User"
+  cp "./code/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+  cp "./code/settings.json" "$HOME/.config/Code/User/settings.json"
+  echo "vscode"
+}
+
+lf() {
+  mkdir -p "$HOME/.config/lf"
+  cp "./lf/colors" "$HOME/.config/lf/colors"
+  cp "./lf/icons" "$HOME/.config/lf/icons"
+  cp "./lf/lfrc" "$HOME/.config/lf/lfrc"
+  cp "./lf/clear_img.sh" "$HOME/.config/lf/clear_img.sh"
+  cp "./lf/draw_img.sh" "$HOME/.config/lf/draw_img.sh"
+  cp "./lf/previewer.sh" "$HOME/.config/lf/previewer.sh"
+  cp "./lf/run.sh" "$HOME/.config/lf/run.sh"
+  echo "lf"
+}
+
+mpd() {
+  mkdir -p "$HOME/.config/mpd/playlists"
+  cp "./mpd/mpd.conf" "$HOME/.config/mpd/mpd.conf"
+  echo "mpd"
+}
+
+nvim() {
+  mkdir -p "$HOME/.config/nvim/lua"
+  cp "./nvim/init.lua" "$HOME/.config/nvim/init.lua"
+  cp -r ./nvim/lua/* "$HOME/.config/nvim/lua/"
+  echo "nvim"
+}
+
+xresources() {
+  cp "./.Xresources" "$HOME/.Xresources"
+  echo "xresources"
+}
+
+xorg() {
+  cp "./xorg/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
+  cp "./xorg/20-graphics.conf" "/etc/X11/xorg.conf.d/20-graphics.conf"
+  echo "xorg"
+}
+
+btop
+cava
+# vscode
+nvim
+lf
+mpd
+xresources
+
+xorg
