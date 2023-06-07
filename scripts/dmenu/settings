@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DMENU='bemenu -i'
+COMMAND=$(echo -e "Audio\nBluetooth\nGPU\nNetwork" | $DMENU -p Settings:);
+
+case $COMMAND in
+
+  "Bluetooth") foot -e bluetuith & ;;
+  "GPU") nvidia-settings & ;;
+  "Audio") pavucontrol & ;;
+  "Network") ~/.de/scripts/dmenu/network & ;;
+
+esac

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+UFW_DISABLED=$(sudo ufw status | grep inactive)
+if [[ $UFW_DISABLED ]]; then
+  printf "󱜢"
+else
+  printf "󱨑"
+fi

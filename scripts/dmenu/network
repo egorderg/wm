@@ -1,0 +1,39 @@
+#!/bin/bash
+
+VPN_HELP=$(cat <<EOM
+Commands:
+  vpn-close                       Close OpenVPN connection
+  vpn-open CONFIG                 Open OpenVPN connection with config
+EOM
+)
+
+DMENU='bemenu -i'
+DONE=false
+
+while ! $DONE; do
+
+  COMMAND=$(echo -e "Wifi\nVPN\nIP.me\nDNS Leak" | $DMENU);
+  if ! [ $COMMAND ]; then
+    break;
+  fi
+
+  case $COMMAND in
+    "Wifi")
+      foot -e sh -c "iwctl" &
+      DONE=true
+      ;;
+    "VPN")
+      foot -e sh -c "sudo ufw status; echo \"$VPN_HELP\"; exec bash" &
+      DONE=true
+      ;;
+    "IP.me")
+      xdg-open "https://ip.me/" &
+      DONE=true
+      ;;
+    "DNS-Leak")
+      xdg-open "https://www.dnsleaktest.com/" &
+      DONE=true
+      ;;
+  esac
+
+done
