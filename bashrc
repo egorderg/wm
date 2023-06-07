@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Env
+export BEMENU_OPTS="-W 0.5 -H 25 -M 20 -l 20 --fn \"Fira Code\" -B 1 --bdr #4E5173 --tf #61AFEF --hf #61AFEF --nb #1A1B26 --tb #1A1B26 --ab #1A1B26 --fb #1A1B26 --hb #1A1B26"
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_MUSIC_DIR=$HOME/Music
+
 # Misc
 alias freecaches='sync;echo 3 | sudo tee /proc/sys/vm/drop_caches'
 alias pkg_count='pacman -Q | wc -l'
@@ -17,13 +24,31 @@ alias tempty='trash-empty'
 
 # Password Gen
 alias passgen='pwgen -s -c -n 25'
+alias passgen18='pwgen -s -c -n 18'
 
 # Archiving
 alias arar="unrar x"
 alias azip="unzip"
 alias a7z="7z x"
 
-# TMUX
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    tmux new
-fi
+# VPN
+vpnor() {
+  sudo pkill openvpn
+  sudo -b openvpn "/etc/openvpn/client/random.ovpn"
+}
+
+# ffmpeg
+ffmpeg-thumbnails() {
+  for i in *.mkv; do
+    ffmpeg -i "$i" -ss 00:10:00.000 -vf 'scale=200:200:force_original_aspect_ratio=decrease' -vframes 1 "${i%.*}.png";
+  done
+}
+
+outback-metadata() {
+  for i in *.mkv; do
+    file="${i%.*}.meta"
+    mediainfo --Inform="General;%Duration%" "$i" > "$file"
+    mediainfo --Inform="Audio;%Language%," "$i" >> "$file"
+    mediainfo --Inform="Text;%Language%," "$i" >> "$file"
+  done
+}

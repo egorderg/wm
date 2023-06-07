@@ -1,28 +1,21 @@
 #!/bin/bash
 
-DMENU="dmenu -i"
-COMMAND=$(echo -e "brave\ngimp\ncode\nlf\ncava\nmpv\nmonitor\ngpu-monitor\nbluetooth\ngpu-settings\nsearch\nmusic\nvideo\npass\nsystem" | $DMENU);
-
-search() {
-  TEXT=$(echo -n | $DMENU -p search:)
-  if [[ $TEXT ]]; then
-    xdg-open "https://search.brave.com/search?q=$TEXT" &
-  fi
-}
+DMENU="bemenu -i"
+COMMAND=$(echo -e "Brave\nFirefox\nGimp\nCode\nGodot\nFinder\nCava\nMedia Player\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
-  "brave") brave & ;;
-  "gimp") gimp & ;;
-  "code") code --unity-launch & ;;
-  "lf") st -e lf & ;;
-  "cava") st -c float-term -g 90x15+300+150 -e cava & ;;
-  "monitor") st -e btop & ;;
-  "gpu-monitor") st -e nvtop & ;;
-  "bluetooth") st -e bluetuith & ;;
-  "gpu-settings") nvidia-settings & ;;
-  "search") search ;;
-  "music") ~/.de/scripts/dmenu/music & ;;
-  "video") ~/.de/scripts/dmenu/video & ;;
-  "pass") ~/.de/scripts/dmenu/pass & ;;
-  "system") ~/.de/scripts/dmenu/system & ;;
+  "Brave") brave & ;;
+  "Firefox") firefox & ;;
+  "Gimp") gimp & ;;
+  "Code") codium & ;;
+  "Godot") godot & ;;
+  "Finder") foot -e ~/.config/lf/run.sh & ;;
+  "Cava") foot -e cava & ;;
+  "Activity Monitor") foot -e btop & ;;
+  "GPU Monitor") foot -e nvtop & ;;
+  "Settings") ~/.de/scripts/dmenu/settings & ;;
+  "Music") ~/.de/scripts/dmenu/music & ;;
+  "Video") ~/.de/scripts/dmenu/video & ;;
+  "Pass") ~/.de/scripts/dmenu/pass & ;;
+  "System") ~/.de/scripts/dmenu/system & ;;
 esac

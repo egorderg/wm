@@ -2,24 +2,9 @@
 
 set -e
 
-if [ -n "$DISPLAY" ]; then
-  export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
-
-  cleanup() {
-    exec 3>&-
-    rm "$FIFO_UEBERZUG"
-  }
-
-  mkfifo "$FIFO_UEBERZUG"
-  ueberzug layer -s <"$FIFO_UEBERZUG" &
-  exec 3>"$FIFO_UEBERZUG"
-  trap cleanup EXIT
-
-  if ! [ -d "/tmp/lf" ]; then
-    mkdir -p "/tmp/lf"
-  fi
-
-  lf "$@" 3>&-
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	lf "$@"
 else
-  exec lf "$@"
+	[ ! -d "$HOME/.cache/lf" ] && mkdir --parents "$HOME/.cache/lf"
+	lf "$@" 3>&-
 fi

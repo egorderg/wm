@@ -1,12 +1,12 @@
 #!/bin/bash
 
-DMENU='dmenu -i'
-COMMAND=$(echo -e "shutdown\nreboot\nexit dwm" | $DMENU -p system:);
+DMENU='bemenu -i'
+COMMAND=$(echo -e "Close Session\nReboot\nShutdown" | $DMENU -p System:);
 
 case $COMMAND in
 
-  "shutdown") shutdown now & ;;
-  "reboot") reboot & ;;
-  "exit dwm") pkill dwm & ;;
+  "Shutdown") shutdown now & ;;
+  "Reboot") reboot & ;;
+  "Close Session") hyprctl dispatch exit & ;;
 
 esac

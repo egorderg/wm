@@ -1,4 +1,50 @@
 {
+	// Extensions
+	"vsix.debug": true,
+	"vsix.applyChanges": false,
+	"vsix.sources": {
+		"local": {
+			"type": "file",
+			"path": "~/.de/code/extensions",
+		},
+		"opn": {
+			"type": "marketplace",
+			"serviceUrl": "https://open-vsx.org/vscode/gallery",
+		},
+	},
+	"vsix.groups": {
+		"theme": [
+			"local:vscodium.monkey-patch",
+			"local:vscodium.customize-ui",
+			"local:bradzacher.vscode-coloured-status-bar-problems",
+			"opn:vscode-icons-team.vscode-icons",
+			"opn:shalldie.background",
+			"enkia.tokyo-night",
+			"zhuangtongfa.Material-theme",
+		],
+		"workflow": [
+			"local:jeanp413.open-remote-ssh",
+			"opn:usernamehw.errorlens",
+			"opn:alefragnani.project-manager",
+		],
+		"godot": [
+			"opn:geequlim.godot-tools"
+		],
+		"go": [
+			"golang.Go"
+		],
+		"rust": [
+			"rust-lang.rust-analyzer"
+		]
+	},
+	"vsix.extensions": [
+		"vscodevim.vim",
+		"theme",
+		"workflow",
+		"godot",
+		"go",
+		"rust",
+	],
 	// General
 	"telemetry.telemetryLevel": "off",
 	// Window
@@ -12,25 +58,39 @@
 	"security.workspace.trust.banner": "never",
 	// Workbench
 	"workbench.startupEditor": "newUntitledFile",
-	"workbench.colorTheme": "Tokyo Night",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.reduceMotion": "on",
 	"workbench.list.openMode": "doubleClick",
 	"workbench.view.alwaysShowHeaderActions": true,
 	"workbench.editor.showTabs": false,
 	"workbench.editor.enablePreview": false,
+	"problems.defaultViewMode": "tree",
 	"vsicons.presets.foldersAllDefaultIcon": true,
 	"vsicons.dontShowNewVersionMessage": true,
 	// Editor
-	"editor.fontFamily": "'Fira Code', 'monospace', monospace",
-	"editor.fontSize": 14,
+	"breadcrumbs.enabled": false,
+	"editor.fontFamily": "'Fira Code Retina', 'monospace', monospace",
+	"editor.fontSize": 13,
 	"editor.lineHeight": 18,
 	"editor.indentSize": 2,
 	"editor.tabSize": 2,
+	// "editor.autoClosingBrackets": "never",
+	// "editor.autoClosingQuotes": "never",
+	"editor.renderWhitespace": "none",
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
 	"editor.wordWrap": "off",
 	"editor.lineNumbers": "relative",
+	"editor.renderLineHighlight": "all",
+	"editor.renderLineHighlightOnlyWhenFocus": true,
+	"editor.foldingHighlight": true,
+	"editor.unfoldOnClickAfterEndOfLine": false,
+	"editor.showFoldingControls": "never",
+	"editor.occurrencesHighlight": false,
+	"editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.vertical": "hidden",
+	"editor.overviewRulerBorder": false,
+	"editor.hideCursorInOverviewRuler": true,
 	"editor.bracketPairColorization.enabled": true,
 	"editor.guides.bracketPairs": false,
 	"editor.guides.bracketPairsHorizontal": false,
@@ -55,9 +115,6 @@
 	],
 	// Git
 	"git.confirmSync": false,
-	// Dart
-	"dart.closingLabels": false,
-	"dart.autoImportCompletions": false,
 	// CSharp
 	"omnisharp.enableEditorConfigSupport": true,
 	"omnisharp.enableRoslynAnalyzers": true,
@@ -70,6 +127,10 @@
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"
 	},
+	// Typescript
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	// Vim
 	"vim.easymotion": true,
 	"vim.incsearch": true,
@@ -77,7 +138,19 @@
 	"vim.hlsearch": true,
 	"vim.highlightedyank.enable": true,
 	"vim.useCtrlKeys": true,
+	"vim.foldfix": true,
 	"vim.leader": "<space>",
+	"vim.insertModeKeyBindings": [
+		{
+			"before": [
+				"j",
+				"j"
+			],
+			"after": [
+				"<Esc>"
+			]
+		}
+	],
 	"vim.normalModeKeyBindings": [
 		{
 			"before": [
@@ -477,6 +550,38 @@
 			"when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor",
 			"silent": true
 		},
+		{
+			"before": [
+				"g",
+				"e"
+			],
+			"commands": [
+				"errorLens.copyProblemMessage"
+			],
+			"silent": true
+		},
+		// Debugging
+		{
+			"before": [
+				"d",
+				"t"
+			],
+			"commands": [
+				"editor.debug.action.toggleBreakpoint"
+			],
+			"when": "debuggersAvailable && editorTextFocus",
+			"silent": true
+		},
+		{
+			"before": [
+				"d",
+				"c"
+			],
+			"commands": [
+				"workbench.debug.viewlet.action.removeAllBreakpoints"
+			],
+			"silent": true
+		},
 		// Editor
 		{
 			"before": [
@@ -528,7 +633,48 @@
 		}
 	],
 	// Theme
+	"background.enabled": true,
+	"background.useDefault": false,
+	"background.useFront": false,
+	"background.fullscreen": {
+		"image": "file:///home/egor/Desktop/code.jpg",
+		"opacity": 0.95,
+		"size": "cover",
+		"position": "center",
+		"interval": 0
+	},
+	"customizeUI.activityBar": "bottom",
+	"customizeUI.activityBarHideSettings": true,
+	"customizeUI.statusBarPosition": "top",
+	"customizeUI.font.regular": "Noto Sans Retina",
+	"customizeUI.font.monospace": "Fira Code Retina",
+	"customizeUI.listRowHeight": 22,
+	"customizeUI.stylesheet": {
+		"#status\\.host": "margin-left: 0px;",
+		"#alefragnani\\.project-manager": "order: 1; text-transform: uppercase; font-weight: 600;",
+		"#alefragnani\\.project-manager .codicon": "display: none !important;",
+		"#status\\.scm\\.0": "order: 2",
+		"#bradzacher\\.vscode-coloured-status-bar-problems": "order: 3",
+		"#rust-lang\\.rust-analyzer": "order: 4",
+		"#vscodevim\\.vim\\.primary": "order: 5",
+		"#status\\.message": "order: 6",
+		"body.status-bar-at-top .monaco-workbench .part.statusbar .statusbar-item": "padding: 0px !important;",
+		"body.status-bar-at-top .monaco-workbench .part.statusbar .statusbar-item a": "border-radius: 0px !important;",
+		".line-numbers .relative-current-line-number": "text-align: right !important;",
+		".monaco-action-bar > ul[aria-label=\"Editor actions\"]": "display: none !important;",
+		".editor-group-container > .title": "height: 24px !important;",
+		".editor-group-container > .title > .label-container": "height: 24px !important;",
+		".sidebar > .composite.title": "display: flex; align-items: center;",
+		".sidebar > .composite.title > .title-label > h2": "font-weight: 800;",
+		".sidebar > .composite.title > .title-actions": "display: none !important;",
+		".explorer-folders-view .monaco-list-row": "padding-left: 0px;",
+		".explorer-folders-view .monaco-list-row .label-name": "font-size: 12px;",
+	},
 	"workbench.colorCustomizations": {
+		"editorOverviewRuler.errorForeground": "#0000",
+		"editorOverviewRuler.warningForeground": "#0000",
+		"editorOverviewRuler.infoForeground": "#0000",
+		// "editorGroup.border": "#0000",
 		"[Tokyo Night]": {
 			"scrollbar.shadow": "#00000000",
 			"widget.shadow": "#00000000",
@@ -538,9 +684,6 @@
 			"statusBar.noFolderBackground": "#1a1b26"
 		}
 	},
-	"editor.renderWhitespace": "none",
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
+	"workbench.colorTheme": "Tokyo Night",
 	"workbench.activityBar.visible": false
 }

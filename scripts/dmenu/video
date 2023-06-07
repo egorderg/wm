@@ -1,31 +1,31 @@
 #!/bin/bash
 
-DMENU='dmenu -i'
+DMENU='bemenu -i'
 DONE=false
 
 while ! $DONE; do
 
-  COMMAND=$(echo -e "local\nstream" | $DMENU -p video:);
+  COMMAND=$(echo -e "Local\nStream" | $DMENU -p Video:);
   if ! [ $COMMAND ]; then
     break;
   fi
 
   case $COMMAND in
-    "local")
-      URL=$(echo -n | $DMENU -p path:)
+    "Local")
+      URL=$(echo -n | $DMENU -p Path:)
       if [ $URL ]; then
         DONE=true
         mpv "$URL" &
       fi
       ;;
-    "stream")
-      URL=$(echo -n | $DMENU -p url:)
+    "Stream")
+      URL=$(echo -n | $DMENU -p URL:)
       if [ $URL ]; then
         DONE=true
-        PREMIUM=$(echo -e "no\nyes" | $DMENU -p premium:)
+        PREMIUM=$(echo -e "No\nYes" | $DMENU -p Premium:)
         case $PREMIUM in
-          "no") mpv "--ytdl-raw-options=embed-subs=,sub-lang=de.*" "$URL" & ;;
-          "yes") mpv "--ytdl-raw-options=cookies-from-browser=brave,embed-subs=,sub-lang=de.*" "$URL" & ;;
+          "No") mpv "--ytdl-raw-options=embed-subs=,sub-lang=de.*" "$URL" & ;;
+          "Yes") mpv "--ytdl-raw-options=cookies-from-browser=brave,embed-subs=,sub-lang=de.*" "$URL" & ;;
         esac
       fi
       ;;

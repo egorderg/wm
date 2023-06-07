@@ -9,7 +9,7 @@ if [[ $1 == "--type" ]]; then
 fi
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-	dmenu=dmenu-wl
+	dmenu="bemenu -i"
 	xdotool="ydotool type --file -"
 elif [[ -n $DISPLAY ]]; then
 	dmenu="dmenu -i"
@@ -24,7 +24,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" "$@")
+password=$(printf '%s\n' "${password_files[@]}" | $dmenu -p "Pass:" "$@")
 
 [[ -n $password ]] || exit
 

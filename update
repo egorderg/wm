@@ -9,65 +9,75 @@ fi
 
 btop() {
   mkdir -p "$HOME/.config/btop"
-  cp "./btop/btop.conf" "$HOME/.config/btop/btop.conf"
+  cp "$HOME/.de/btop/btop.conf" "$HOME/.config/btop/btop.conf"
   echo "btop"
 }
 
 cava() {
   mkdir -p "$HOME/.config/cava"
-  cp "./cava/config" "$HOME/.config/cava/config"
+  cp "$HOME/.de/cava/config" "$HOME/.config/cava/config"
   echo "cava"
 }
 
 vscode() {
-  mkdir -p "$HOME/.config/Code/User"
-  cp "./code/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
-  cp "./code/settings.json" "$HOME/.config/Code/User/settings.json"
+  mkdir -p "$HOME/.config/VSCodium/User"
+  cp "$HOME/.de/code/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
+  cp "$HOME/.de/code/settings.json" "$HOME/.config/VSCodium/User/settings.json"
   echo "vscode"
+}
+
+gtk() {
+  mkdir -p "$HOME/.config/gtk-3.0"
+  cp "$HOME/.de/gtk-3.0/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
+  cp "$HOME/.de/gtk-3.0/gtk-dark.css" "$HOME/.config/gtk-3.0/gtk-dark.css"
+  cp -r $HOME/.de/gtk-3.0/assets/* "$HOME/.config/gtk-3.0/assets/"
+  echo "gtk"
 }
 
 lf() {
   mkdir -p "$HOME/.config/lf"
-  cp "./lf/colors" "$HOME/.config/lf/colors"
-  cp "./lf/icons" "$HOME/.config/lf/icons"
-  cp "./lf/lfrc" "$HOME/.config/lf/lfrc"
-  cp "./lf/clear_img.sh" "$HOME/.config/lf/clear_img.sh"
-  cp "./lf/draw_img.sh" "$HOME/.config/lf/draw_img.sh"
-  cp "./lf/previewer.sh" "$HOME/.config/lf/previewer.sh"
-  cp "./lf/run.sh" "$HOME/.config/lf/run.sh"
+  cp "$HOME/.de/lf/colors" "$HOME/.config/lf/colors"
+  cp "$HOME/.de/lf/icons" "$HOME/.config/lf/icons"
+  cp "$HOME/.de/lf/lfrc" "$HOME/.config/lf/lfrc"
+  cp "$HOME/.de/lf/previewer.sh" "$HOME/.config/lf/previewer.sh"
+  cp "$HOME/.de/lf/run.sh" "$HOME/.config/lf/run.sh"
   echo "lf"
 }
 
 mpd() {
   mkdir -p "$HOME/.config/mpd/playlists"
-  cp "./mpd/mpd.conf" "$HOME/.config/mpd/mpd.conf"
+  cp "$HOME/.de/mpd/mpd.conf" "$HOME/.config/mpd/mpd.conf"
   echo "mpd"
 }
 
 nvim() {
-  mkdir -p "$HOME/.config/nvim/lua"
-  cp "./nvim/init.lua" "$HOME/.config/nvim/init.lua"
-  cp -r ./nvim/lua/* "$HOME/.config/nvim/lua/"
-  echo "nvim"
+  # FIX: Outdated
+  # mkdir -p "$HOME/.config/nvim/lua"
+  # cp "$HOME/.de/nvim/init.lua" "$HOME/.config/nvim/init.lua"
+  # cp -r $HOME/.de/nvim/lua/* "$HOME/.config/nvim/lua/"
+  # echo "nvim"
 }
 
-xresources() {
-  cp "./.Xresources" "$HOME/.Xresources"
-  echo "xresources"
+xdefaults() {
+  cp "$HOME/.de/.Xdefaults" "$HOME/.Xdefaults"
+  echo "xdefaults"
 }
 
-xorg() {
-  cp "./xorg/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
-  cp "./xorg/20-graphics.conf" "/etc/X11/xorg.conf.d/20-graphics.conf"
-  echo "xorg"
+desktop() {
+  mkdir -p "$HOME/.config/hypr"
+  mkdir -p "$HOME/.config/swaylock"
+  mkdir -p "$HOME/.config/waybar"
+  cp "$HOME/.de/hypr/hyprland.conf" "$HOME/.config/hypr/hyprland.conf"
+  cp "$HOME/.de/swaylock/config" "$HOME/.config/swaylock/config"
+  cp "$HOME/.de/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc"
+  cp "$HOME/.de/waybar/style.css" "$HOME/.config/waybar/style.css"
 }
 
 btop
 cava
-# vscode
-nvim
+gtk
+vscode
 lf
 mpd
-xresources
-
-xorg
+xdefaults
+desktop
