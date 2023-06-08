@@ -56,6 +56,12 @@ M.general = {
     -- Window
     ["<leader>qq"] = { "<cmd>q<CR>", "Close window" },
     ["<leader>qa"] = { "<cmd>qa<CR>", "Close all window" },
+    ["<leader>qs"] = {
+      function ()
+        vim.cmd("mksession! " .. vim.fs.normalize(vim.fn.getcwd() .. "/session.vim"))
+        vim.cmd("qa")
+      end, "Close all windows and save session"
+    },
     ["<leader>sh"] = { "<cmd>vsplit<CR>", "Split horizontal" },
     ["<leader>sv"] = { "<cmd>split<CR>", "Split vertical" },
 
