@@ -50,6 +50,10 @@ local plugins = {
     end,
   },
   {
+    "https://github.com/famiu/bufdelete.nvim",
+    event = "BufEnter"
+  },
+  {
     "folke/todo-comments.nvim",
     lazy = false,
     opts = function()

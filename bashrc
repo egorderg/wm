@@ -13,7 +13,7 @@ alias pkg_count='pacman -Q | wc -l'
 
 # Files
 alias lf='~/.config/lf/run.sh'
-alias ls='ls -l --color=auto --group-directories-first'
+alias ll='ls -l --color=auto --group-directories-first'
 alias lsa='ls -lA --color=auto --group-directories-first'
 
 # Trash
@@ -30,6 +30,10 @@ alias passgen18='pwgen -s -c -n 18'
 alias arar="unrar x"
 alias azip="unzip"
 alias a7z="7z x"
+
+# FZF
+alias fmake="cat Makefile | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split(\$1,A,/ /);for(i in A)print A[i]}' | fzf | xargs -r make"
+alias fproj="cd \$(find ~/Documents/dev/* -type d -prune | fzf)"
 
 # VPN
 vpnor() {

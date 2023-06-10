@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
@@ -13,5 +14,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- 
--- lspconfig.pyright.setup { blabla }
+lspconfig.gdscript.setup {
+  cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
+  on_attach = on_attach,
+  capabilities = capabilities,
+}

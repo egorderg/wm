@@ -71,8 +71,8 @@ M.general = {
 
     -- Buffer
     ["<leader>bn"] = { "<cmd>enew<CR>", "New buffer" },
-    ["<leader>bc"] = { "<cmd>bdelete<CR>", "Close buffer" },
-    ["<leader>bo"] = { "<cmd>%bd|e#|bd#<CR>", "Close other buffers" },
+    ["<leader>bc"] = { "<cmd>Bdelete<CR>", "Close buffer" },
+    ["<leader>bo"] = { "<cmd>%bp|e#|bd#<CR>", "Close other buffers" },
   },
   v = {
     ["<"] = { "<gv", "Oudent Lines" },
@@ -82,8 +82,9 @@ M.general = {
 
 M.nvimtree = {
   n = {
-    ["<leader>et"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-    ["<leader>ee"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    -- ["<leader>et"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    -- ["<leader>ee"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>ee"] = { "<cmd> NvimTreeToggle <CR>", "Focus nvimtree" },
   }
 }
 
