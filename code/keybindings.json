@@ -37,7 +37,7 @@
 		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
 	},
 	{
-		"key": "ctrl+w up",
+		"key": "ctrl+w k",
 		"command": "workbench.action.focusAboveGroup"
 	},
 	{
@@ -45,7 +45,7 @@
 		"command": "-workbench.action.focusAboveGroup"
 	},
 	{
-		"key": "ctrl+w down",
+		"key": "ctrl+w j",
 		"command": "workbench.action.focusBelowGroup"
 	},
 	{
@@ -53,7 +53,7 @@
 		"command": "-workbench.action.focusBelowGroup"
 	},
 	{
-		"key": "ctrl+w left",
+		"key": "ctrl+w h",
 		"command": "workbench.action.focusLeftGroup"
 	},
 	{
@@ -61,7 +61,7 @@
 		"command": "-workbench.action.focusLeftGroup"
 	},
 	{
-		"key": "ctrl+w right",
+		"key": "ctrl+w l",
 		"command": "workbench.action.focusRightGroup"
 	},
 	{

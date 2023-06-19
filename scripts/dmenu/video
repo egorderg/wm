@@ -5,12 +5,12 @@ DONE=false
 
 while ! $DONE; do
 
-  COMMAND=$(echo -e "Local\nStream" | $DMENU -p Video:);
-  if ! [ $COMMAND ]; then
+  COMMAND=$(echo -e "Local\nStream\nMKV Editor" | $DMENU -p Video:);
+  if ! [ "$COMMAND" ]; then
     break;
   fi
 
-  case $COMMAND in
+  case "$COMMAND" in
     "Local")
       URL=$(echo -n | $DMENU -p Path:)
       if [ $URL ]; then
@@ -28,6 +28,10 @@ while ! $DONE; do
           "Yes") mpv "--ytdl-raw-options=cookies-from-browser=brave,embed-subs=,sub-lang=de.*" "$URL" & ;;
         esac
       fi
+      ;;
+    "MKV Editor")
+      QT_SCALE_FACTOR=0.5 mkvtoolnix-gui &
+      DONE=true
       ;;
   esac
 

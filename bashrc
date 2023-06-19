@@ -35,6 +35,9 @@ alias a7z="7z x"
 alias fmake="cat Makefile | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split(\$1,A,/ /);for(i in A)print A[i]}' | fzf | xargs -r make"
 alias fproj="cd \$(find ~/Documents/dev/* -type d -prune | fzf)"
 
+#SSH
+alias fastssh="ssh -c aes128-gcm@openssh.com -o Compression=no"
+
 # VPN
 vpnor() {
   sudo pkill openvpn

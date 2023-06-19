@@ -20,9 +20,9 @@ cava() {
 }
 
 vscode() {
-  mkdir -p "$HOME/.config/VSCodium/User"
-  cp "$HOME/.de/code/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
-  cp "$HOME/.de/code/settings.json" "$HOME/.config/VSCodium/User/settings.json"
+  mkdir -p "$HOME/.config/Code/User"
+  cp "$HOME/.de/code/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+  cp "$HOME/.de/code/settings.json" "$HOME/.config/Code/User/settings.json"
   echo "vscode"
 }
 

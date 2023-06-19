@@ -1,50 +1,16 @@
 {
 	// Extensions
-	"vsix.debug": true,
-	"vsix.applyChanges": false,
-	"vsix.sources": {
-		"local": {
-			"type": "file",
-			"path": "~/.de/code/extensions",
-		},
-		"opn": {
-			"type": "marketplace",
-			"serviceUrl": "https://open-vsx.org/vscode/gallery",
-		},
-	},
-	"vsix.groups": {
-		"theme": [
-			"local:vscodium.monkey-patch",
-			"local:vscodium.customize-ui",
-			"local:bradzacher.vscode-coloured-status-bar-problems",
-			"opn:vscode-icons-team.vscode-icons",
-			"opn:shalldie.background",
-			"enkia.tokyo-night",
-			"zhuangtongfa.Material-theme",
-		],
-		"workflow": [
-			"local:jeanp413.open-remote-ssh",
-			"opn:usernamehw.errorlens",
-			"opn:alefragnani.project-manager",
-		],
-		"godot": [
-			"opn:geequlim.godot-tools"
-		],
-		"go": [
-			"golang.Go"
-		],
-		"rust": [
-			"rust-lang.rust-analyzer"
-		]
-	},
-	"vsix.extensions": [
-		"vscodevim.vim",
-		"theme",
-		"workflow",
-		"godot",
-		"go",
-		"rust",
-	],
+	// vscode-icons-team.vscode-icons
+	// shalldie.background
+	// enkia.tokyo-night
+	// ms-vscode-remote.remote-ssh
+	// usernamehw.errorlens
+	// alefragnani.project-manager
+	// vscodevim.vim
+	// kamikillerto.vscode-colorize
+	// ms-vscode.makefile-tools
+	// ibm.output-colorizer
+	// wayou.vscode-todo-highlight
 	// General
 	"telemetry.telemetryLevel": "off",
 	// Window
@@ -111,7 +77,6 @@
 	"projectManager.removeCurrentProjectFromList": true,
 	"projectManager.git.baseFolders": [
 		"~/Documents/dev",
-		"~/Documents/Repositories"
 	],
 	// Git
 	"git.confirmSync": false,
@@ -154,8 +119,7 @@
 	"vim.normalModeKeyBindings": [
 		{
 			"before": [
-				"<leader>",
-				"h"
+				"<Esc>",
 			],
 			"commands": [
 				":nohl"
@@ -164,7 +128,7 @@
 		// Workbench
 		{
 			"before": [
-				":"
+				";"
 			],
 			"commands": [
 				"workbench.action.showCommands"
@@ -442,6 +406,17 @@
 			"before": [
 				"<leader>",
 				"b",
+				"b"
+			],
+			"commands": [
+				"workbench.action.previousEditorInGroup"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
 				"c"
 			],
 			"commands": [
@@ -642,33 +617,6 @@
 		"size": "cover",
 		"position": "center",
 		"interval": 0
-	},
-	"customizeUI.activityBar": "bottom",
-	"customizeUI.activityBarHideSettings": true,
-	"customizeUI.statusBarPosition": "top",
-	"customizeUI.font.regular": "Noto Sans Retina",
-	"customizeUI.font.monospace": "Fira Code Retina",
-	"customizeUI.listRowHeight": 22,
-	"customizeUI.stylesheet": {
-		"#status\\.host": "margin-left: 0px;",
-		"#alefragnani\\.project-manager": "order: 1; text-transform: uppercase; font-weight: 600;",
-		"#alefragnani\\.project-manager .codicon": "display: none !important;",
-		"#status\\.scm\\.0": "order: 2",
-		"#bradzacher\\.vscode-coloured-status-bar-problems": "order: 3",
-		"#rust-lang\\.rust-analyzer": "order: 4",
-		"#vscodevim\\.vim\\.primary": "order: 5",
-		"#status\\.message": "order: 6",
-		"body.status-bar-at-top .monaco-workbench .part.statusbar .statusbar-item": "padding: 0px !important;",
-		"body.status-bar-at-top .monaco-workbench .part.statusbar .statusbar-item a": "border-radius: 0px !important;",
-		".line-numbers .relative-current-line-number": "text-align: right !important;",
-		".monaco-action-bar > ul[aria-label=\"Editor actions\"]": "display: none !important;",
-		".editor-group-container > .title": "height: 24px !important;",
-		".editor-group-container > .title > .label-container": "height: 24px !important;",
-		".sidebar > .composite.title": "display: flex; align-items: center;",
-		".sidebar > .composite.title > .title-label > h2": "font-weight: 800;",
-		".sidebar > .composite.title > .title-actions": "display: none !important;",
-		".explorer-folders-view .monaco-list-row": "padding-left: 0px;",
-		".explorer-folders-view .monaco-list-row .label-name": "font-size: 12px;",
 	},
 	"workbench.colorCustomizations": {
 		"editorOverviewRuler.errorForeground": "#0000",
