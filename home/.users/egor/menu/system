@@ -1,0 +1,10 @@
+#!/bin/bash
+
+COMMAND=$(echo -e "Reboot\nShutdown" | $DMENU -p System:);
+
+case $COMMAND in
+
+  "Shutdown") shutdown now & ;;
+  "Reboot") reboot & ;;
+
+esac

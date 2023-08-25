@@ -1,0 +1,181 @@
+/*
+Colors:
+black=#1a1b26
+green=#9ece6a
+white=#a9b1d6
+grey=#24283b
+blue=#61AFEF
+red=#E06C75
+yellow=#e0af68
+magenta=#C678DD
+*/
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: FiraCode Nerd Font, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	min-height: 0;
+}
+
+window#waybar {
+	background: rgba(21, 18, 27, 0);
+	color: #A9B1D6;
+}
+
+tooltip {
+	background: #1e1e2e;
+	border-radius: 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #11111b;
+}
+
+/* Common */
+#window,
+#custom-grouped,
+#clock,
+#pulseaudio,
+#workspaces,
+#mpd,
+#cava,
+#cpu,
+#memory,
+#disk,
+#network,
+#custom-vpn,
+#custom-firewall,
+#temperature,
+#battery,
+#backlight {
+	background: #1A1B26;
+	padding: 0px 10px;
+	margin: 3px 0px;
+	margin-top: 10px;
+	border: 1px solid #161623;
+}
+
+/* Center */
+#window {
+	min-width: 8px;
+	border-radius: 9999px;
+	margin-left: 10px;
+	margin-right: 0px;
+	border-right: none;
+}
+
+#mpd {
+	min-width: 8px;
+	border-radius: 9999px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* Left */
+#clock {
+	color: #61AFEF;
+	border-radius: 10px;
+	margin-left: 10px;
+	border-right: none;
+}
+
+#disk {
+	border-radius: 10px 0px 0px 10px;
+	border-right: none;
+	margin-left: 10px;
+	color: #C678DD;
+}
+
+#cpu {
+	border-right: none;
+	color: #9ece6a;
+}
+
+#memory {
+	border-radius: 0 10px 10px 0;
+	color: #e0af68;
+}
+
+#workspaces {
+	border-radius: 10px;
+	padding-right: 0px;
+	padding-left: 7px;
+	margin-left: 10px;
+}
+
+#workspaces button {
+	padding: 5px 4px;
+	color: #a6adc8;
+	margin-right: 5px;
+}
+
+#workspaces button:not(:last-child) {
+	border-right: 1px solid #161623;
+	margin-right: 5px;
+}
+
+#workspaces button.active {
+	color: #61AFEF;
+}
+
+#workspaces button.focused {
+	color: #a6adc8;
+	background: #eba0ac;
+	border-radius: 10px;
+}
+
+#workspaces button.urgent {
+	color: #11111b;
+	background: #a6e3a1;
+	border-radius: 10px;
+}
+
+#workspaces button:hover {
+	background: #11111b;
+	color: #cdd6f4;
+	border-radius: 10px;
+}
+
+/* Right */
+#pulseaudio {
+	color: #e0af68;
+	margin-right: 10px;
+	border-radius: 10px;
+}
+
+#network {
+	color: #C678DD;
+	border-radius: 10px 0 0 10px;
+}
+
+#custom-vpn {
+	border-left: none;
+	color: #61AFEF;
+	font-size: 16px;
+}
+
+#custom-firewall {
+	color: #61AFEF;
+	border-radius: 0 10px 10px 0;
+	margin-right: 10px;
+	border-left: none;
+	font-size: 16px;
+}
+
+#backlight {
+	color: #e0af68;
+	border-radius: 10px 0 0 10px;
+}
+
+#battery {
+	color: #9ece6a;
+	border-left: none;
+}
+
+#temperature {
+	color: #E06C75;
+	border-radius: 0 10px 10px 0;
+	border-left: none;
+	margin-right: 10px;
+}

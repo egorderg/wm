@@ -1,0 +1,106 @@
+#!/bin/bash
+
+MUSIC_PATH="~/Music"
+DONE=false
+
+add() {
+  mpc repeat on
+
+  COMMAND=$(echo -e "Playlist\nSong\nAll" | $DMENU -p Add:)
+  if ! [ $COMMAND ]; then
+    return;
+  fi
+
+  case $COMMAND in
+    "Playlist")
+      PLAYLIST=$(mpc lsplaylist | $DMENU -l 20 -p "Playlist:")
+      if [[ $PLAYLIST ]]; then
+        mpc load "$PLAYLIST"
+      fi
+      ;;
+    "Song")
+      SONGS=$(mpc ls | $DMENU -l 20 -p "Song:")
+      if [[ $SONGS ]]; then
+        while IFS= read -r line; do
+          mpc insert "$line"
+        done <<< "$SONGS"
+      fi
+      ;;
+    "All")
+      mpc add /
+      ;;
+  esac
+
+  mpc play
+}
+
+queue() {
+  SONG=$(mpc playlist | grep -n '.*' | $DMENU -l 20 -p "Select:")
+  if [[ $SONG ]]; then
+    SONG=$(echo $SONG | cut -d ":" -f 1)
+    mpc play $SONG
+  fi
+}
+
+remove() {
+  SONGS=$(mpc playlist | grep -n '.*' | $DMENU -l 20 -p "Remove:")
+  if [[ $SONGS ]]; then
+    count=0
+    while IFS= read -r line; do
+      SONG=$(echo $line | cut -d ":" -f 1)
+      mpc del $(( $SONG - $count ))
+      (( count++ ))
+    done <<< "$SONGS"
+  fi
+}
+
+save() {
+  NAME=$(echo -n | $DMENU -p Save:)
+  if [[ $NAME ]]; then
+    if [[ $(mpc lsplaylist | grep $NAME) ]]; then
+      mpc rm $NAME
+    fi
+    mpc save $NAME 
+  fi
+}
+
+download() {
+  URL=$(echo -n | $DMENU -p URL:)
+  if [ $URL ]; then
+    NAME=$(echo -n | $DMENU -p Name:)
+    if [ "$NAME" ]; then
+      yt-dlp -f 'ba' -x --audio-format mp3 -o "$MUSIC_PATH/$NAME.%(ext)s" $URL
+    fi
+  fi
+}
+
+while ! $DONE; do
+
+  COMMAND=$(echo -e "Queue\nAdd\nRemove\nSave\nRandom\nRepeat\nClear\nDownload\nLibrary" | $DMENU -p Music:)
+  if ! [ $COMMAND ]; then
+    break;
+  fi
+
+  case $COMMAND in
+    "Queue") queue ;;
+    "Add") add ;;
+    "Remove") remove ;;
+    "Save") save ;;
+    "Playlists") playlists ;;
+    "Download") download ;;
+    "Random")
+      mpc random
+      ;;
+    "Repeat")
+      mpc single
+      ;;
+    "Clear")
+      mpc clear
+      ;;
+    "Library")
+      foot -e ncmpcpp &
+      DONE=true
+      ;;
+  esac
+
+done

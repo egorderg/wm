@@ -1,0 +1,71 @@
+[
+	{
+		"key": "ctrl+w ctrl+w",
+		"command": "workbench.action.focusNextGroup"
+	},
+	{
+		"key": "ctrl+w ctrl+c",
+		"command": "workbench.action.closeActiveEditor"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "-workbench.action.closeActiveEditor"
+	},
+	{
+		"key": "tab",
+		"command": "selectNextSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "down",
+		"command": "-selectNextSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "shift+tab",
+		"command": "selectPrevSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "up",
+		"command": "-selectPrevSuggestion",
+		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "tab",
+		"command": "-acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "ctrl+w k",
+		"command": "workbench.action.focusAboveGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+up",
+		"command": "-workbench.action.focusAboveGroup"
+	},
+	{
+		"key": "ctrl+w j",
+		"command": "workbench.action.focusBelowGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+down",
+		"command": "-workbench.action.focusBelowGroup"
+	},
+	{
+		"key": "ctrl+w h",
+		"command": "workbench.action.focusLeftGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+left",
+		"command": "-workbench.action.focusLeftGroup"
+	},
+	{
+		"key": "ctrl+w l",
+		"command": "workbench.action.focusRightGroup"
+	},
+	{
+		"key": "ctrl+k ctrl+right",
+		"command": "-workbench.action.focusRightGroup"
+	}
+]

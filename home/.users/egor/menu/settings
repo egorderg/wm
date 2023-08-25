@@ -1,0 +1,14 @@
+#!/bin/bash
+
+COMMAND=$(echo -e "Audio\nBluetooth\nGPU\nNetwork\nPrinter\nROG Control Center" | $DMENU -p Settings:);
+
+case $COMMAND in
+
+  "Bluetooth") foot -e bluetuith & ;;
+  "GPU") nvidia-settings & ;;
+  "Audio") pavucontrol & ;;
+  "Network") foot -e nmtui & ;;
+  "Printer") xdg-open "http://localhost:631/" & ;;
+  "ROG Control Center") rog-control-center ;;
+
+esac

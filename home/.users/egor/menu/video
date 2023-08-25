@@ -1,0 +1,33 @@
+#!/bin/bash
+
+DONE=false
+
+while ! $DONE; do
+
+  COMMAND=$(echo -e "Local\nStream" | $DMENU -p Video:);
+  if ! [ "$COMMAND" ]; then
+    break;
+  fi
+
+  case "$COMMAND" in
+    "Local")
+      URL=$(echo -n | $DMENU -p Path:)
+      if [ $URL ]; then
+        DONE=true
+        mpv "$URL" &
+      fi
+      ;;
+    "Stream")
+      URL=$(echo -n | $DMENU -p URL:)
+      if [ $URL ]; then
+        DONE=true
+        PREMIUM=$(echo -e "No\nYes" | $DMENU -p Premium:)
+        case $PREMIUM in
+          "No") mpv "--ytdl-raw-options=embed-subs=,sub-lang=de.*" "$URL" & ;;
+          "Yes") mpv "--ytdl-raw-options=cookies-from-browser=brave,embed-subs=,sub-lang=de.*" "$URL" & ;;
+        esac
+      fi
+      ;;
+  esac
+
+done

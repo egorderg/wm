@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	lf "$@"
+else
+	[ ! -d "$HOME/.cache/lf" ] && mkdir --parents "$HOME/.cache/lf"
+	lf "$@" 3>&-
+fi

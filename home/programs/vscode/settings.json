@@ -1,0 +1,595 @@
+{
+	"telemetry.telemetryLevel": "off",
+	"window.menuBarVisibility": "toggle",
+	"window.titleBarStyle": "custom",
+	"window.restoreWindows": "none",
+	"workbench.editor.untitled.hint": "hidden",
+	"files.simpleDialog.enable": true,
+	"security.workspace.trust.enabled": false,
+	"security.workspace.trust.banner": "never",
+	"workbench.startupEditor": "newUntitledFile",
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.reduceMotion": "on",
+	"workbench.list.openMode": "doubleClick",
+	"workbench.view.alwaysShowHeaderActions": true,
+	"workbench.editor.showTabs": false,
+	"workbench.editor.enablePreview": false,
+	"problems.defaultViewMode": "tree",
+	"vsicons.presets.foldersAllDefaultIcon": true,
+	"vsicons.dontShowNewVersionMessage": true,
+	"breadcrumbs.enabled": false,
+	"editor.fontFamily": "'FiraCode Nerd Font Ret', 'monospace', monospace",
+	"editor.fontSize": 13,
+	"editor.lineHeight": 18,
+	"editor.indentSize": 2,
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "none",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.wordWrap": "off",
+	"editor.lineNumbers": "relative",
+	"editor.renderLineHighlight": "all",
+	"editor.renderLineHighlightOnlyWhenFocus": true,
+	"editor.foldingHighlight": true,
+	"editor.unfoldOnClickAfterEndOfLine": false,
+	"editor.showFoldingControls": "never",
+	"editor.occurrencesHighlight": false,
+	"editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.vertical": "hidden",
+	"editor.overviewRulerBorder": false,
+	"editor.hideCursorInOverviewRuler": true,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": false,
+	"editor.guides.bracketPairsHorizontal": false,
+	"editor.formatOnSave": true,
+	"editor.minimap.enabled": false,
+	"editor.semanticHighlighting.enabled": true,
+	"editor.quickSuggestionsDelay": 100,
+	"zenMode.hideLineNumbers": false,
+	"zenMode.centerLayout": false,
+	"zenMode.hideStatusBar": false,
+	"zenMode.fullScreen": true,
+	"zenMode.silentNotifications": true,
+	"projectManager.sortList": "Recent",
+	"projectManager.cacheProjectsBetweenSessions": true,
+	"projectManager.showProjectNameInStatusBar": true,
+	"projectManager.removeCurrentProjectFromList": true,
+	"projectManager.git.baseFolders": [
+		"~/Documents/dev"
+	],
+	"git.confirmSync": false,
+	"dotnet.server.useOmnisharp": true,
+	"omnisharp.enableEditorConfigSupport": true,
+	"omnisharp.enableRoslynAnalyzers": true,
+	"omnisharp.organizeImportsOnFormat": true,
+	"csharp.referencesCodeLens.enabled": false,
+	"[csharp]": {
+		"editor.defaultFormatter": "ms-dotnettools.csharp"
+	},
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"vim.easymotion": true,
+	"vim.incsearch": true,
+	"vim.useSystemClipboard": true,
+	"vim.hlsearch": true,
+	"vim.highlightedyank.enable": true,
+	"vim.useCtrlKeys": true,
+	"vim.foldfix": true,
+	"vim.leader": "<space>",
+	"vim.insertModeKeyBindings": [
+		{
+			"before": [
+				"j",
+				"j"
+			],
+			"after": [
+				"<Esc>"
+			]
+		}
+	],
+	"vim.normalModeKeyBindings": [
+		{
+			"before": [
+				"<Esc>"
+			],
+			"commands": [
+				":nohl"
+			]
+		},
+		{
+			"before": [
+				";"
+			],
+			"commands": [
+				"workbench.action.showCommands"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				","
+			],
+			"commands": [
+				"workbench.action.files.openFile"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"."
+			],
+			"commands": [
+				"workbench.action.files.openFolder"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"-"
+			],
+			"commands": [
+				"projectManager.listProjects"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"_"
+			],
+			"commands": [
+				"projectManager.addToWorkspace"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"b"
+			],
+			"commands": [
+				"workbench.action.showEditorsInActiveGroup"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"f"
+			],
+			"commands": [
+				"workbench.action.quickOpen"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"s"
+			],
+			"commands": [
+				"workbench.action.gotoSymbol"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"S"
+			],
+			"commands": [
+				"workbench.action.showAllSymbols"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"t",
+				"t"
+			],
+			"commands": [
+				"workbench.action.tasks.runTask"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"t",
+				"d"
+			],
+			"commands": [
+				"workbench.action.debug.selectandstart"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"q"
+			],
+			"commands": [
+				"workbench.action.closeEditorsInGroup"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"a"
+			],
+			"commands": [
+				"workbench.action.toggleActivityBarVisibility"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"v"
+			],
+			"commands": [
+				"workbench.action.openView"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"s"
+			],
+			"commands": [
+				"workbench.action.toggleSidebarVisibility"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"p"
+			],
+			"commands": [
+				"workbench.action.togglePanel"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"e"
+			],
+			"commands": [
+				"workbench.view.explorer"
+			],
+			"when": "viewContainer.workbench.view.explorer.enabled",
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"f"
+			],
+			"commands": [
+				"workbench.action.findInFiles"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"g"
+			],
+			"commands": [
+				"workbench.view.scm"
+			],
+			"when": "workbench.smc.active",
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"d"
+			],
+			"commands": [
+				"workbench.view.debug"
+			],
+			"when": "viewContainer.workbench.view.debug.enabled",
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"x"
+			],
+			"commands": [
+				"workbench.view.extensions"
+			],
+			"when": "viewContainer.workbench.view.extensions.enabled",
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"v",
+				"t"
+			],
+			"commands": [
+				"workbench.action.terminal.focus"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"s",
+				"h"
+			],
+			"commands": [
+				"workbench.action.splitEditor"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"s",
+				"v"
+			],
+			"commands": [
+				"workbench.action.splitEditorDown"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"s"
+			],
+			"after": [
+				"<leader>",
+				"<leader>",
+				"2",
+				"s"
+			]
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"b"
+			],
+			"commands": [
+				"workbench.action.previousEditorInGroup"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"c"
+			],
+			"commands": [
+				"workbench.action.closeActiveEditor"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"o"
+			],
+			"commands": [
+				"workbench.action.closeOtherEditors"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"f"
+			],
+			"commands": [
+				"actions.find"
+			],
+			"when": "editorFocus || editorIsOpen",
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"g"
+			],
+			"commands": [
+				"git.openChange"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"w",
+				"w"
+			],
+			"commands": [
+				"workbench.action.files.save"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"w",
+				"a"
+			],
+			"commands": [
+				"workbench.action.files.saveFiles"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"g",
+				"a"
+			],
+			"commands": [
+				"editor.action.quickFix"
+			],
+			"when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly",
+			"silent": true
+		},
+		{
+			"before": [
+				"g",
+				"d"
+			],
+			"commands": [
+				"editor.action.revealDefinition"
+			],
+			"when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor",
+			"silent": true
+		},
+		{
+			"before": [
+				"g",
+				"n"
+			],
+			"commands": [
+				"editor.action.rename"
+			],
+			"when": "editorHasRenameProvider && editorTextFocus && !editorReadonly",
+			"silent": true
+		},
+		{
+			"before": [
+				"g",
+				"r"
+			],
+			"commands": [
+				"editor.action.goToReferences"
+			],
+			"when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor",
+			"silent": true
+		},
+		{
+			"before": [
+				"g",
+				"e"
+			],
+			"commands": [
+				"errorLens.copyProblemMessage"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"d",
+				"t"
+			],
+			"commands": [
+				"editor.debug.action.toggleBreakpoint"
+			],
+			"when": "debuggersAvailable && editorTextFocus",
+			"silent": true
+		},
+		{
+			"before": [
+				"d",
+				"c"
+			],
+			"commands": [
+				"workbench.debug.viewlet.action.removeAllBreakpoints"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"=",
+				"="
+			],
+			"commands": [
+				"editor.action.reindentselectedlines"
+			]
+		}
+	],
+	"vim.visualModeKeyBindings": [
+		{
+			"before": [
+				">"
+			],
+			"commands": [
+				"editor.action.indentLines"
+			]
+		},
+		{
+			"before": [
+				"<"
+			],
+			"commands": [
+				"editor.action.outdentLines"
+			]
+		},
+		{
+			"before": [
+				"="
+			],
+			"commands": [
+				"editor.action.reindentselectedlines"
+			]
+		}
+	],
+	"vim.visualModeKeyBindingsNonRecursive": [
+		{
+			"before": [
+				"p"
+			],
+			"after": [
+				"p",
+				"g",
+				"v",
+				"y"
+			]
+		}
+	],
+	"workbench.colorCustomizations": {
+		"[Tokyo Night]": {
+			"scrollbar.shadow": "#00000000",
+			"widget.shadow": "#00000000",
+			"editorGroupHeader.border": "#00000000",
+			"editorGroupHeader.noTabsBackground": "#1a1b26",
+			"statusBar.background": "#1a1b26",
+			"statusBar.noFolderBackground": "#1a1b26"
+		}
+	},
+	"workbench.colorTheme": "Tokyo Night",
+	"workbench.activityBar.visible": false
+}
