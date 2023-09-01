@@ -4,11 +4,11 @@
 		enable = true;
 		settings = {
 			main = {
-				term = "xterm-256color";
+				term = "foot";
 				app-id = "foot";
 				title = "foot";
 				font = "FiraCode Nerd Font:style=Medium:pixelsize=14:antialias=true:autohint=true";
-				pad = "32x14";
+				pad = "32x16";
 			};
 
 			cursor = {

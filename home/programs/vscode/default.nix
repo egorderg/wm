@@ -4,7 +4,7 @@
 		enable = true;
 		package = pkgs.vscode;
 		enableUpdateCheck = false;
-		mutableExtensionsDir = false;
+		mutableExtensionsDir = true;
 		userSettings = lib.importJSON ./settings.json;
 		keybindings = lib.importJSON ./keybindings.json;
 		extensions = with pkgs.vscode-extensions; [

@@ -14,6 +14,8 @@
 	# I used custom seperators as the older one looked not very properly proportioned
 
 	print_info() {
+			chafa -f sixel ~/Downloads/face.png
+
 			prin "┌─────────\n Hardware Information \n─────────┐"
 			info " ​ ​ 󰌢 " model
 			info " ​ ​ 󰍛 " cpu
@@ -122,8 +124,8 @@
 	battery_display="on"
 	disk_display="on"
 
-	image_backend="sixel"
-	image_source="$HOME/.config/hypr/wallpaper.jpeg"
+	image_backend="off"
+	image_source="$HOME/Downloads/face.jpg"
 	image_size="auto"
 	image_loop="off"
 

@@ -1,11 +1,16 @@
 { pkgs, lib, ... }:
 {
+	programs = {
+		fish.enable = true;
+	};
+
 	users = {
 		users.egor = {
 			uid = 1000;
 			isNormalUser = true;
 			home = "/home/egor";
 			description = "Egor";
+			shell = pkgs.fish;
 			extraGroups = [ "networkmanager" "wheel" "video" "share" ];
 		};
 	};
@@ -22,8 +27,13 @@
     ];
   };
 
+	environment.sessionVariables = {
+		FZF_DEFAULT_OPTS = ''--cycle --layout=reverse --border --height=90% --no-separator --no-scrollbar --preview-window=wrap --marker=\"*\" --prompt=\">\"'';
+	};
+
 	environment.systemPackages = with pkgs; [
 		git
+		grc
 		fd
 		fzf
 		ripgrep

@@ -7,6 +7,7 @@
 	"files.simpleDialog.enable": true,
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.banner": "never",
+	"workbench.activityBar.visible": false,
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.reduceMotion": "on",
@@ -590,6 +591,5 @@
 			"statusBar.noFolderBackground": "#1a1b26"
 		}
 	},
-	"workbench.colorTheme": "Tokyo Night",
-	"workbench.activityBar.visible": false
+	"workbench.colorTheme": "Tokyo Night"
 }

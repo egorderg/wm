@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
 		./hardware-configuration.nix
@@ -14,26 +14,22 @@
 
   networking.hostName = "rog";
 
-	boot.loader = {
-		efi = {
-			canTouchEfiVariables = true;
-		};
-		grub = {
-			enable = true;
-			device = "nodev";
-			efiSupport = true;
-			enableCryptodisk = true;
-			theme = pkgs.stdenv.mkDerivation {
-				pname = "grub-theme";
-				version = "1.0";
-				src = pkgs.fetchFromGitHub {
-					owner = "HenriqueLopes42";
-					repo = "themeGrub.CyberEXS";
-					rev = "b20991c1385338dc0fc407d22c4ceba89fbc4618";
-					hash = "sha256-/cXdzJwaqRuell63GiNvTRxESm9ub/YAX0/OsdWBbsY=";
-				};
-				installPhase = "cp -r ./ $out";
+	boot = {
+		blacklistedKernelModules = [ "nouveau" ];
+		bootspec.enable = true;
+		loader = {
+			efi = {
+				# UEFI Support
+				canTouchEfiVariables = true;
 			};
+			systemd-boot = {
+				enable = lib.mkForce false; # Replaced by Lanzaboote
+				editor = false;
+			};
+		};
+		lanzaboote = {
+			enable = true;
+			pkiBundle = "/etc/secureboot";
 		};
 	};
 
@@ -73,6 +69,7 @@
 
   environment.systemPackages = with pkgs; [
 		asusctl
+		sbctl
   ];
 
   system.stateVersion = "23.05";

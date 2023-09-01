@@ -23,7 +23,7 @@
 		NIXOS_OZONE_WL = "1";
 		GDK_BACKEND = "wayland,x11";
 		QT_QPA_PLATFORM = "wayland;xcb";
-		SDL_VIDEODRIVER = "wayland";
+		# SDL_VIDEODRIVER = "wayland";
 		CLUTTER_BACKEND = "wayland";
 		QT_AUTO_SCREEN_SCALE_FACTOR = "1";
 		QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
@@ -42,10 +42,6 @@
 		exec-once = hyprctl setcursor Catppuccin-Mocha-Dark-Cursors 24
 		exec-once = swaybg -i ~/.config/hypr/wallpaper
 		exec-once = waybar
-
-		# Fix slow startup
-		exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-		exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 		# Monitors
 		monitor=eDP-1,1920x1080@360,auto,1

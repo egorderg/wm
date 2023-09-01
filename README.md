@@ -16,3 +16,6 @@ Example of a `fs.nix` configuration
 }
 
 ```
+
+## SecureBoot
+https://nixos.wiki/wiki/Secure_Boot

@@ -9,8 +9,8 @@ let
 in {
 	imports = [
 		(import ../../desktop/hyprland {
-			wallpaper = "egor/wallpaper.jpeg";
-			lock = "egor/lock.jpg";
+			wallpaper = "egor/assets/wallpaper.jpg";
+			lock = "egor/assets/lock.jpg";
 			terminal = "foot";
 			menu = "desktop-menu-all";
 		})
@@ -20,11 +20,11 @@ in {
 		../../programs/monitor
 		../../programs/qmv
 		../../programs/foot.nix
-		../../programs/neofetch.nix
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
 		../../programs/git.nix
+		../../programs/neovim.nix
 
 		../../services/gpg.nix
 		../../services/mpd.nix
@@ -48,9 +48,15 @@ in {
 		imv
 		bat
 		trash-cli
+		obsidian
+		gimp
+		godot
 
 		firefox
 		librewolf
+
+		wineWowPackages.stable
+		winetricks
 	];
 
 	home.sessionVariables = {
@@ -65,15 +71,49 @@ in {
 
 		LIBVA_DRIVER_NAME = "radeonsi";
 		VDPAU_DRIVER = "radeonsi";
+
+		DOTNET_CLI_TELEMETRY_OPTOUT = 1;
 	};
- 
- 	programs.bash = {
+
+	programs.fish = {
 		enable = true;
-		profileExtra = ''
-			if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-				Hyprland
-			fi
+		interactiveShellInit = ''
+			set fish_greeting
+			
+			# FZF
+			fzf_configure_bindings
+
+			# GRC
+			set -U grc_plugin_execs make ifconfig ls ping ps tail traceroute mount diff
+
+			# Vi
+			fish_vi_key_bindings insert
+			set fish_cursor_default block
+			set fish_cursor_insert line
+			set fish_cursor_replace_one underscore
+			set fish_cursor_visual block
 		'';
+		loginShellInit = ''
+			if test (tty) = /dev/tty1
+				Hyprland
+			end
+		'';
+		functions = {
+			munrar = ''for file in *.rar; unrar e "$file" -p"$argv[1]"; end'';
+		};
+		shellAliases = {
+			l = "ls -l --color=auto --group-directories-first";
+			ll = "ls -lA --color=auto --group-directories-first";
+			ls = "ls --color=auto";
+			passgen25 = "pwgen -s -c -n 25";
+			passgen18 = "pwgen -s -c -n 18";
+			fastssh = "ssh -c aes128-gcm@openssh.com -o Compression=no";
+		};
+		plugins = [
+			{ name = "grc"; src = pkgs.fishPlugins.grc.src; }
+			{ name = "fzf"; src = pkgs.fishPlugins.fzf-fish.src; }
+			{ name = "tide"; src = pkgs.fishPlugins.tide.src; }
+		];
 	};
 
 	home.stateVersion = "23.05";

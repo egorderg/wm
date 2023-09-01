@@ -1,13 +1,14 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nCode\nGodot\nFinder\nCava\nMedia Player\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
+COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nCode\nGodot\nObsidian\nFinder\nCava\nMedia Player\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
   "Browser") librewolf & ;;
   "Media Browser") firefox & ;;
   "Gimp") gimp & ;;
   "Code") code & ;;
-  "Godot") godot3-mono-bin & ;;
+  "Godot") godot3 & ;;
+  "Obsidian") obsidian & ;;
   "Finder") foot -e lf & ;;
   "Cava") foot -e cava & ;;
   "Activity Monitor") foot -e btop & ;;
