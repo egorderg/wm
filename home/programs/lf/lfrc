@@ -119,6 +119,7 @@ cmd open &{{
       text/*|application/json) lf -remote "send $id \$$EDITOR \$fx";;
       image/*) imv "$f" & disown;;
       video/*) mpv "$f" & disown;;
+      application/pdf) evince "$f" & disown;;
       *) echoerr "Can't open file";;
   esac
 }}

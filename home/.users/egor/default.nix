@@ -9,6 +9,7 @@ let
 in {
 	imports = [
 		(import ../../desktop/hyprland {
+			waybar = "aero";
 			wallpaper = "egor/assets/wallpaper.jpg";
 			lock = "egor/assets/lock.jpg";
 			terminal = "foot";
@@ -44,13 +45,14 @@ in {
 		yt-dlp
 		megacmd
 		pwgen
-		ncmpcpp
 		imv
 		bat
 		trash-cli
 		obsidian
 		gimp
 		godot
+		evince
+		ymuse
 
 		firefox
 		librewolf

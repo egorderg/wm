@@ -1,3 +1,4 @@
+{ theme }:
 { config, pkgs, lib, ... }:
 {
 	programs.waybar = {
@@ -10,8 +11,9 @@
 		};
 	};
 
-	xdg.configFile."waybar/config.jsonc".source = ./config.jsonc;
-	xdg.configFile."waybar/style.css".source = ./style.css;
+	xdg.configFile."waybar/config.jsonc".source = ./themes + "/${theme}.jsonc";
+	xdg.configFile."waybar/style.css".source = ./themes + "/${theme}.css";
 	xdg.configFile."waybar/vpn".source = pkgs.writeShellScript "vpn.sh" (builtins.readFile ./vpn.sh);
 	xdg.configFile."waybar/firewall".source = pkgs.writeShellScript "firewall.sh" (builtins.readFile ./firewall.sh);
+	xdg.configFile."waybar/song".source = pkgs.writeShellScript "song.sh" (builtins.readFile ./song.sh);
 }

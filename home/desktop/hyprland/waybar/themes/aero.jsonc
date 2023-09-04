@@ -1,0 +1,186 @@
+{
+	"layer": "top",
+	"position": "top",
+	"mod": "dock",
+	"exclusive": true,
+	"passtrough": false,
+	"gtk-layer-shell": true,
+	"height": 0,
+	"modules-left": [
+		"clock",
+		"pulseaudio",
+		"mpd",
+		"custom/song"
+	],
+	"modules-center": [
+		"wlr/workspaces"
+	],
+	"modules-right": [
+		"backlight",
+		"battery",
+		"temperature",
+		"custom/vpn",
+		"custom/firewall",
+		"disk",
+		"cpu",
+		"memory",
+		"network"
+	],
+	"wlr/workspaces": {
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"all-outputs": true,
+		"on-click": "activate",
+		"format": "{name}",
+		"format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+		}
+	},
+	"cpu": {
+		"interval": 10,
+		"format": "󰘚 {}%",
+		"max-length": 10,
+		"on-click": ""
+	},
+	"memory": {
+		"interval": 30,
+		"format": "󰍛 {}%",
+		"format-alt": "󰍛 {used:0.1f}G",
+		"max-length": 10
+	},
+	"disk": {
+		"path": "/",
+		"interval": 30,
+		"format": "󰋊 {percentage_free}%"
+	},
+	"clock": {
+		"format": "{:%a %R %d/%m}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"temperature": {
+		"thermal-zone": "/sys/class/thermal/",
+		"format": "󰔏 {temperatureC}°C"
+	},
+	"backlight": {
+		"device": "amdgpu_bl1",
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"󰖙",
+			"󰖙"
+		]
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": "󰂄 {capacity}%",
+		"format-full": "󱟢 {capacity}%",
+		"format-icons": [
+			"󰂃",
+			"󰁾",
+			""
+		]
+	},
+	"network": {
+		"interface": "wlo1",
+		"format": "{ifname}",
+		"format-wifi": "󰖩 {essid}",
+		"format-ethernet": "󰌗 {ipaddr}/{cidr}",
+		"format-disconnected": "󰖪 Disconnected",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "{ipaddr} ({signalStrength}%)",
+		"tooltip-format-ethernet": "{ipaddr} {ifname}",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 20
+	},
+	"custom/vpn": {
+		"exec": "~/.config/waybar/vpn",
+		"interval": 2
+	},
+	"custom/firewall": {
+		"exec": "~/.config/waybar/firewall",
+		"interval": 2
+	},
+	"custom/song": {
+		"exec": "~/.config/waybar/song",
+		"interval": 1,
+		"escape": true,
+		"max-length": 60
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"tooltip": false,
+		"format-muted": " Muted",
+		"scroll-step": 5,
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		}
+	},
+	"mpd": {
+		"max-length": 60,
+		"format": "{stateIcon}{randomIcon}{singleIcon}",
+		"format-stopped": " ",
+		"format-disconnected": "Disconnected",
+		"interval": 10,
+		"random-icons": {
+			"off": "",
+			"on": " 󰒝"
+		},
+		"single-icons": {
+			"off": "",
+			"on": " 󰕇"
+		},
+		"state-icons": {
+			"paused": "󱖒",
+			"playing": "󱖑"
+		},
+		"tooltip-format": "{songPosition}/{queueLength} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+		"tooltip-format-disconnected": "Disconnected"
+	},
+	"cava": {
+		"cava_config": "$XDG_CONFIG_HOME/cava/config",
+		"framerate": 60,
+		"autosens": 1,
+		"sensitivity": 100,
+		"bars": 14,
+		"lower_cutoff_freq": 50,
+		"higher_cutoff_freq": 10000,
+		"method": "pipewire",
+		"source": "auto",
+		"stereo": true,
+		"reverse": false,
+		"bar_delimiter": 0,
+		"monstercat": false,
+		"waves": false,
+		"noise_reduction": 0.77,
+		"input_delay": 2,
+		"format-icons": [
+			"▁",
+			"▂",
+			"▃",
+			"▄",
+			"▅",
+			"▆",
+			"▇",
+			"█"
+		],
+		"actions": {
+			"on-click-right": "mode"
+		}
+	}
+}

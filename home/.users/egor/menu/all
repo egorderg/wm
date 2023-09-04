@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nCode\nGodot\nObsidian\nFinder\nCava\nMedia Player\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
+COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nCode\nGodot\nObsidian\nFinder\nCava\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
   "Browser") librewolf & ;;

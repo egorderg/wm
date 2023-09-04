@@ -1,12 +1,12 @@
-{ wallpaper, lock, terminal, menu }:
+{ waybar, wallpaper, lock, terminal, menu }:
 { config, pkgs, lib, ... }:
 {
 	imports = with pkgs; [
-		./waybar
 		./bemenu.nix
 		./gtk.nix
 		./swayidle.nix
 
+		(import ./waybar { theme = waybar; })
 		(import ./swaylock.nix { image = lock; })
 	];
 
@@ -44,7 +44,8 @@
 		exec-once = waybar
 
 		# Monitors
-		monitor=eDP-1,1920x1080@360,auto,1
+		#monitor=eDP-2,1920x1080@360,auto,1
+		monitor=eDP-2,disable
 		monitor=HDMI-A-1,3840x2160@60,auto,2
 		monitor=,highres,auto,1
 
@@ -107,20 +108,27 @@
 		  rounding = 6
 		  multisample_edges = true
 
-		  active_opacity = 1.0
-		  inactive_opacity = 0.9
+		  active_opacity = 0.95
+		  inactive_opacity = 0.85
 
-		  # blur = false
-		  # blur_size = 6
-		  # blur_passes = 3
-		  # blur_new_optimizations = true
+		  blur {
+				enabled = true;
+				size = 6
+				passes = 3
+				new_optimizations = true
+				ignore_opacity = true;
+				noise = 0.1;
+				contrast = 1.1;
+				brightness = 1.2;
+				xray = true;
+			}
 
-		  drop_shadow = false
+		  drop_shadow = true
 		  shadow_ignore_window = true
-		  shadow_offset = 1 2
-		  shadow_range = 10
-		  shadow_render_power = 2
-		  col.shadow = 0x66404040
+		  shadow_offset = 0 8
+		  shadow_range = 50
+		  shadow_render_power = 3
+		  col.shadow = rgba(00000099)
 		}
 
 		animations {
@@ -150,6 +158,8 @@
 		}
 
 		# Rules
+		layerrule = blur, waybar
+
 		windowrule = float, file_progress
 		windowrule = float, confirm
 		windowrule = float, dialog
@@ -165,7 +175,7 @@
 		windowrule = float, pavucontrol
 		windowrule = float, file-roller
 		windowrule = float, title:DevTools
-		# windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
+		#windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
 		# Bindings
 		$mainMod = SUPER

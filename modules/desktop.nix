@@ -7,9 +7,10 @@
 			noto-fonts-emoji
 			fira-code
 			fira-code-symbols
+			jetbrains-mono
 
 			(nerdfonts.override {
-				fonts = [ "FiraCode" ];
+				fonts = [ "FiraCode" "JetBrainsMono" ];
 			})
 		];
 

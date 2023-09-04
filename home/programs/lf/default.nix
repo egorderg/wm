@@ -6,6 +6,7 @@
 		ffmpegthumbnailer
 		mediainfo
 		libcdio
+		poppler_utils
 		(callPackage ./lf-sixel.nix { })
 	];
 

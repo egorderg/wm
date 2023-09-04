@@ -98,7 +98,7 @@ while ! $DONE; do
       mpc clear
       ;;
     "Library")
-      foot -e ncmpcpp &
+      ymuse &
       DONE=true
       ;;
   esac
