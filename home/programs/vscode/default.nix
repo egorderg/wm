@@ -4,20 +4,20 @@
 		enable = true;
 		package = pkgs.vscode;
 		enableUpdateCheck = false;
-		mutableExtensionsDir = true;
+		mutableExtensionsDir = false;
 		userSettings = lib.importJSON ./settings.json;
 		keybindings = lib.importJSON ./keybindings.json;
 		extensions = with pkgs.vscode-extensions; [
 			alefragnani.project-manager
 			bbenoist.nix
 			enkia.tokyo-night
-			ibm.output-colorizer
+      ibm.output-colorizer
 			kamikillerto.vscode-colorize
-			ms-dotnettools.csharp
 			ms-vscode-remote.remote-ssh
 			usernamehw.errorlens
 			vscode-icons-team.vscode-icons
 			vscodevim.vim
+			ms-dotnettools.csharp
 		] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 			{
 				name = "vscode-todo-highlight";

@@ -60,10 +60,11 @@
 	],
 	"git.confirmSync": false,
 	"dotnet.server.useOmnisharp": true,
+	"csharp.referencesCodeLens.enabled": false,
 	"omnisharp.enableEditorConfigSupport": true,
 	"omnisharp.enableRoslynAnalyzers": true,
 	"omnisharp.organizeImportsOnFormat": true,
-	"csharp.referencesCodeLens.enabled": false,
+	"omnisharp.analyzeOpenDocumentsOnly": false,
 	"[csharp]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},

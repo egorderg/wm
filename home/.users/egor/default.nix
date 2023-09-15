@@ -50,7 +50,6 @@ in {
 		trash-cli
 		obsidian
 		gimp
-		godot
 		evince
 		ymuse
 
@@ -59,6 +58,10 @@ in {
 
 		wineWowPackages.stable
 		winetricks
+
+		dotnet-sdk_7
+
+		(callPackage ../../programs/godot-mono.nix { })
 	];
 
 	home.sessionVariables = {
@@ -75,6 +78,7 @@ in {
 		VDPAU_DRIVER = "radeonsi";
 
 		DOTNET_CLI_TELEMETRY_OPTOUT = 1;
+		DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
 	};
 
 	programs.fish = {

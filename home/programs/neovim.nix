@@ -10,6 +10,7 @@
 			opt.clipboard = "unnamedplus"
 			opt.number = true
 			opt.relativenumber = true
+			opt.ignorecase = true
 
 			opt.expandtab = true
 			opt.shiftwidth = 2

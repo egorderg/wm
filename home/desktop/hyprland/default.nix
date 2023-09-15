@@ -44,10 +44,20 @@
 		exec-once = waybar
 
 		# Monitors
-		#monitor=eDP-2,1920x1080@360,auto,1
-		monitor=eDP-2,disable
+		monitor=eDP-2,1920x1080@360,auto,1
+		#monitor=eDP-2,disable
 		monitor=HDMI-A-1,3840x2160@60,auto,2
 		monitor=,highres,auto,1
+
+		workspace=HDMI-A-1,1,
+		workspace=HDMI-A-1,2,
+		workspace=HDMI-A-1,3,
+		workspace=HDMI-A-1,4,
+		workspace=HDMI-A-1,5,
+		workspace=HDMI-A-1,6,
+		workspace=HDMI-A-1,7,
+		workspace=HDMI-A-1,8,
+		workspace=eDP-2,9,
 
 		# Mouse
 		env = XCURSOR_SIZE,14
@@ -108,7 +118,7 @@
 		  rounding = 6
 		  multisample_edges = true
 
-		  active_opacity = 0.95
+		  active_opacity = 1.0
 		  inactive_opacity = 0.85
 
 		  blur {
@@ -175,7 +185,7 @@
 		windowrule = float, pavucontrol
 		windowrule = float, file-roller
 		windowrule = float, title:DevTools
-		#windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
+		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
 		# Bindings
 		$mainMod = SUPER
