@@ -8,8 +8,8 @@
 		../../modules/security.nix
 		../../modules/network.nix
 		../../modules/vpn.nix
-		../../modules/fs.nix
 		../../modules/desktop.nix
+		../../modules/fs.nix
 	];
 
   networking.hostName = "rog";
@@ -35,7 +35,10 @@
 
 	services = {
 		asusd.enable = true;
-		xserver.videoDrivers = ["nvidia"];
+
+		xserver = {
+			videoDrivers = ["nvidia"];
+		};
 
 		printing = {
 			enable = true;

@@ -52,6 +52,7 @@ in {
 		gimp
 		evince
 		ymuse
+		jetbrains.idea-ultimate
 
 		firefox
 		librewolf
@@ -59,7 +60,8 @@ in {
 		wineWowPackages.stable
 		winetricks
 
-		dotnet-sdk_7
+		dotnet-sdk_8
+		inotify-tools
 
 		(callPackage ../../programs/godot-mono.nix { })
 	];
@@ -73,6 +75,7 @@ in {
 		WLR_NO_HARDWARE_CURSORS = "1";
 		__GL_VRR_ALLOWED = "0";
 		# WLR_RENDERER = "vulkan";
+		_JAVA_AWT_WM_NONREPARENTING = "1";
 
 		LIBVA_DRIVER_NAME = "radeonsi";
 		VDPAU_DRIVER = "radeonsi";

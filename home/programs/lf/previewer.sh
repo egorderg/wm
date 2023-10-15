@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ ! -d "$HOME/.cache/lf" ] && mkdir --parents "$HOME/.cache/lf"
+
 image() {
 	geometry="$(($2-2))x$3"
 	chafa "$1" -f sixel -s "$geometry" --animate false

@@ -7,7 +7,7 @@ case $COMMAND in
   "Media Browser") firefox & ;;
   "Gimp") gimp & ;;
   "Code") code & ;;
-  "Godot") godot-mono & ;;
+  "Godot") godot --rendering-driver opengl3 & ;;
   "Obsidian") obsidian & ;;
   "Finder") foot -e lf & ;;
   "Cava") foot -e cava & ;;

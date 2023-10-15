@@ -1,8 +1,6 @@
 { config, lib, ... }:
 {
 	networking = {
-		firewall.enable = true;
-
 		networkmanager = {
 			enable = true;
 			dns = "systemd-resolved";
@@ -11,6 +9,8 @@
 	};
 
 	services = {
+    resolved.enable = true;
+
 		avahi = {
       enable = true;
       nssmdns = true;

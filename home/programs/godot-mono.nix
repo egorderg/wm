@@ -10,21 +10,24 @@
   libpulseaudio, libGL,
 	msbuild,
 	dotnetPackages,
-	mono5,
-	zlib
+	zlib,
+	fontconfig,
+	libxkbcommon,
+	xorg,
+	dbus
 }:
 
 let
-  qualifier = "stable";
+  qualifier = "4.2-beta1";
 in
 
 stdenv.mkDerivation rec {
   pname = "godot-mono-bin";
-  version = "3.5.1";
+  version = "4.2";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/${version}/mono/Godot_v${version}-${qualifier}_mono_x11_64.zip";
-    sha256 = "7phG4vgq4m0h92gCMPv5kehQQ1BH7rS1c5VZ6Dx3WPc=";
+		url = "https://github.com/godotengine/godot-builds/releases/download/${qualifier}/Godot_v${qualifier}_mono_linux_x86_64.zip";
+    sha256 = "U0V/89ik+gHipEt5g30KO4gwC200Dvcqmpi+FJ5qUv0=";
   };
 
   nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];
@@ -41,6 +44,10 @@ stdenv.mkDerivation rec {
     libpulseaudio
     libGL
 		zlib
+		fontconfig
+		libxkbcommon
+		xorg.libXext
+		dbus.lib
   ];
 
   libraries = lib.makeLibraryPath buildInputs;
@@ -49,14 +56,14 @@ stdenv.mkDerivation rec {
   installPhase = ''
 		mkdir -p $out/bin $out/opt/godot-mono
 
-    install -m 0755 Godot_v${version}-${qualifier}_mono_x11.64 $out/opt/godot-mono/Godot_v${version}-${qualifier}_mono_x11.64
+    install -m 0755 Godot_v${qualifier}_mono_linux.x86_64 $out/opt/godot-mono/Godot_v${qualifier}_mono_linux.x86_64
     cp -r GodotSharp $out/opt/godot-mono
 
-    ln -s $out/opt/godot-mono/Godot_v${version}-${qualifier}_mono_x11.64 $out/bin/godot-mono
+    ln -s $out/opt/godot-mono/Godot_v${qualifier}_mono_linux.x86_64 $out/bin/godot
   '';
 
   postFixup = ''
-		wrapProgram $out/bin/godot-mono \
+		wrapProgram $out/bin/godot \
       --set LD_LIBRARY_PATH ${libraries}
   '';
 

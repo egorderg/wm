@@ -63,13 +63,12 @@
 		env = XCURSOR_SIZE,14
 
 		input {
-		  kb_layout = us
-		  kb_variant =
-		  kb_model =
-		  kb_options =
-		  kb_rules =
+		  kb_layout = us,de
+			kb_variant = altgr-intl,nodeadkeys
+			kb_options = compose:ralt
 
-		  follow_mouse = 1
+		 	follow_mouse = true
+			mouse_refocus = false
 
 		  touchpad {
 		    natural_scroll = false
@@ -108,6 +107,10 @@
 		  render_ahead_of_time = false
 		  vfr = false
 		  vrr = 1
+		}
+
+		xwayland {
+			force_zero_scaling = false
 		}
 
 		debug {
@@ -186,6 +189,10 @@
 		windowrule = float, file-roller
 		windowrule = float, title:DevTools
 		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
+
+		windowrulev2 = noinitialfocus, class:Mogul
+		windowrulev2 = workspace 9, class:Mogul
+		windowrulev2 = float, class:Mogul
 
 		# Bindings
 		$mainMod = SUPER
