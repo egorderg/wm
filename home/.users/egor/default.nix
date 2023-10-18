@@ -17,6 +17,7 @@ in {
 			menu = "desktop-menu-all";
 		})
 
+		../../programs/jetbrains
 		../../programs/vscode
 		../../programs/lf
 		../../programs/monitor
@@ -53,10 +54,6 @@ in {
 		gimp
 		evince
 		ymuse
-
-		jetbrains.idea-ultimate
-		jetbrains.rider
-		jetbrains.gateway
 
 		firefox
 		librewolf
