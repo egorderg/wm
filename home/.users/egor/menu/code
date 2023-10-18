@@ -1,0 +1,11 @@
+#!/bin/bash
+
+COMMAND=$(echo -e "IDEA\nRider\nGateway" | $DMENU -p Code:);
+
+case $COMMAND in
+
+	"IDEA") idea-ultimate & ;;
+  "Rider") rider & ;;
+  "Gateway") gateway & ;;
+
+esac

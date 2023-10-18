@@ -1,21 +1,21 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nCode\nGodot\nObsidian\nFinder\nCava\nActivity Monitor\nGPU Monitor\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
+COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nGodot\nObsidian\nFinder\nCava\nActivity Monitor\nGPU Monitor\nCode\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
   "Browser") librewolf & ;;
   "Media Browser") firefox & ;;
   "Gimp") gimp & ;;
-  "Code") code & ;;
   "Godot") godot --rendering-driver opengl3 & ;;
   "Obsidian") obsidian & ;;
   "Finder") foot -e lf & ;;
   "Cava") foot -e cava & ;;
   "Activity Monitor") foot -e btop & ;;
   "GPU Monitor") foot -e nvtop & ;;
-  "Settings") desktop-menu-settings & ;;
+  "Code") desktop-menu-code & ;;
   "Music") desktop-menu-music & ;;
   "Video") desktop-menu-video & ;;
   "Pass") desktop-menu-pass & ;;
+  "Settings") desktop-menu-settings & ;;
   "System") desktop-menu-system & ;;
 esac

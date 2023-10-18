@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MUSIC_PATH="~/Music"
+MUSIC_PATH="$HOME/Music"
 DONE=false
 
 add() {

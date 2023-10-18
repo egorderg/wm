@@ -1,6 +1,7 @@
 { hyprland, pkgs, lib, ... }:
 let
 	all = pkgs.writeShellScriptBin "desktop-menu-all" (builtins.readFile ./menu/all);
+	code = pkgs.writeShellScriptBin "desktop-menu-code" (builtins.readFile ./menu/code);
 	music = pkgs.writeShellScriptBin "desktop-menu-music" (builtins.readFile ./menu/music);
 	pass = pkgs.writeShellScriptBin "desktop-menu-pass" (builtins.readFile ./menu/pass);
 	settings = pkgs.writeShellScriptBin "desktop-menu-settings" (builtins.readFile ./menu/settings);
@@ -19,20 +20,20 @@ in {
 		../../programs/vscode
 		../../programs/lf
 		../../programs/monitor
-		../../programs/qmv
+    ../../programs/qmv
 		../../programs/foot.nix
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
 		../../programs/git.nix
-		../../programs/neovim.nix
 
 		../../services/gpg.nix
-		../../services/mpd.nix
+	  ../../services/mpd.nix
 	];
 
 	home.packages = with pkgs; [
 		all
+		code
 		music
 		pass
 		settings
@@ -52,7 +53,10 @@ in {
 		gimp
 		evince
 		ymuse
+
 		jetbrains.idea-ultimate
+		jetbrains.rider
+		jetbrains.gateway
 
 		firefox
 		librewolf
@@ -60,6 +64,7 @@ in {
 		wineWowPackages.stable
 		winetricks
 
+    jdk17
 		dotnet-sdk_8
 		inotify-tools
 
@@ -68,14 +73,12 @@ in {
 
 	home.sessionVariables = {
 		BROWSER = "librewolf";
-		EDITOR = "nvim";
-		
+
 		# GBM_BACKEND = "nvidia-drm";
 		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
 		WLR_NO_HARDWARE_CURSORS = "1";
 		__GL_VRR_ALLOWED = "0";
 		# WLR_RENDERER = "vulkan";
-		_JAVA_AWT_WM_NONREPARENTING = "1";
 
 		LIBVA_DRIVER_NAME = "radeonsi";
 		VDPAU_DRIVER = "radeonsi";

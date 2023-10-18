@@ -11,7 +11,7 @@
 	];
 
 	home.packages = with pkgs; [
-		grim
+    grim
 		slurp
 		swaybg
 		wl-clipboard
@@ -35,7 +35,7 @@
 
 	wayland.windowManager.hyprland = {
 		enable = true;
-		systemdIntegration = true;
+		systemd.enable = true;
 		enableNvidiaPatches = true;
 		extraConfig = ''
 		# Launch
@@ -64,11 +64,11 @@
 
 		input {
 		  kb_layout = us,de
-			kb_variant = altgr-intl,nodeadkeys
-			kb_options = compose:ralt
+      kb_variant = altgr-intl,nodeadkeys
+      kb_options = compose:ralt
 
-		 	follow_mouse = true
-			mouse_refocus = false
+      follow_mouse = true
+      mouse_refocus = false
 
 		  touchpad {
 		    natural_scroll = false
@@ -110,7 +110,7 @@
 		}
 
 		xwayland {
-			force_zero_scaling = false
+			force_zero_scaling = true
 		}
 
 		debug {
@@ -125,16 +125,16 @@
 		  inactive_opacity = 0.85
 
 		  blur {
-				enabled = true;
-				size = 6
-				passes = 3
-				new_optimizations = true
-				ignore_opacity = true;
-				noise = 0.1;
-				contrast = 1.1;
-				brightness = 1.2;
-				xray = true;
-			}
+        enabled = true;
+        size = 6
+        passes = 3
+        new_optimizations = true
+        ignore_opacity = true;
+        noise = 0.1;
+        contrast = 1.1;
+        brightness = 1.2;
+        xray = true;
+      }
 
 		  drop_shadow = true
 		  shadow_ignore_window = true
@@ -193,6 +193,10 @@
 		windowrulev2 = noinitialfocus, class:Mogul
 		windowrulev2 = workspace 9, class:Mogul
 		windowrulev2 = float, class:Mogul
+
+		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-idea
+		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-rider
+		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-gateway
 
 		# Bindings
 		$mainMod = SUPER
