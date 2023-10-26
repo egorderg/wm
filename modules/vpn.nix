@@ -3,12 +3,10 @@ let
   iinet = "wlo1";
   ivpn = "wg0";
 	lan = "192.168.178.0/24";
-	lanBroadcast = "192.168.178.255";
 	guestLan = "192.168.179.0/24";
 in {
   networking.enableIPv6 = false;
 
-  # https://www.ivpn.net/knowledgebase/linux/linux-how-do-i-prevent-vpn-leaks-using-nftables-and-openvpn/
 	networking.nftables = {
 		enable = true;
 		ruleset = ''
