@@ -56,7 +56,7 @@
 		workspace=HDMI-A-1,5,
 		workspace=HDMI-A-1,6,
 		workspace=HDMI-A-1,7,
-		workspace=HDMI-A-1,8,
+		workspace=eDP-2,8,
 		workspace=eDP-2,9,
 
 		# Mouse
@@ -67,8 +67,9 @@
       kb_variant = altgr-intl,nodeadkeys
       kb_options = compose:ralt
 
-      follow_mouse = true
+      follow_mouse = 1
       mouse_refocus = false
+      # mouse_refocus = true
 
 		  touchpad {
 		    natural_scroll = false
@@ -190,9 +191,11 @@
 		windowrule = float, title:DevTools
 		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
-		windowrulev2 = noinitialfocus, class:Mogul
-		windowrulev2 = workspace 9, class:Mogul
+    #windowrulev2 = noinitialfocus, class:Mogul
+		#windowrulev2 = workspace 9, class:Mogul
 		windowrulev2 = float, class:Mogul
+		windowrulev2 = move 35% 5%, class:Mogul
+		#windowrulev2 = opacity 1.0 override 1.0 override, class:Mogul
 
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-idea
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-rider

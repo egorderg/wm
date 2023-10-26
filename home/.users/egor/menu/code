@@ -4,7 +4,7 @@ COMMAND=$(echo -e "IDEA\nRider\nGateway" | $DMENU -p Code:);
 
 case $COMMAND in
 
-	"IDEA") idea-ultimate & ;;
+	"Code") code & ;;
   "Rider") rider & ;;
   "Gateway") gateway & ;;
 

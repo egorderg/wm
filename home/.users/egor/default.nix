@@ -62,7 +62,8 @@ in {
 		winetricks
 
     jdk17
-		dotnet-sdk_8
+		dotnet-sdk_7
+		gnumake
 		inotify-tools
 
 		(callPackage ../../programs/godot-mono.nix { })
@@ -116,7 +117,8 @@ in {
 			ls = "ls --color=auto";
 			passgen25 = "pwgen -s -c -n 25";
 			passgen18 = "pwgen -s -c -n 18";
-			fastssh = "ssh -c aes128-gcm@openssh.com -o Compression=no";
+			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com -o Compression=no";
+			xssh = "TERM=xterm ssh";
 		};
 		plugins = [
 			{ name = "grc"; src = pkgs.fishPlugins.grc.src; }

@@ -34,6 +34,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+    tcpdump
 		git
 		grc
 		fd
@@ -44,9 +45,14 @@
 		unrar
 		unzip
 		p7zip
-    ((vim_configurable.override {  }).customize {
-      name = "vim";
-      vimrcConfig.customRC = ''
+	];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+    configure = {
+      customRC = ''
         set encoding=utf8
 
         set noswapfile
@@ -78,8 +84,8 @@
         nmap <leader>sv <cmd>split<cr>
         nmap <leader>ww <cmd>w<cr>
         nmap <leader>wa <cmd>wa<cr>
-        nmap <leader>bc <cmd>bd<cr>
-      '';
-    })
-	];
+        nmap <leader>bc <cmd>bd<cr> 
+      ''; 
+    }; 
+  };
 }

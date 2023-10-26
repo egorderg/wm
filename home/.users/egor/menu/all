@@ -6,12 +6,12 @@ case $COMMAND in
   "Browser") librewolf & ;;
   "Media Browser") firefox & ;;
   "Gimp") gimp & ;;
-  "Godot") godot --rendering-driver opengl3 & ;;
   "Obsidian") obsidian & ;;
   "Finder") foot -e lf & ;;
   "Cava") foot -e cava & ;;
   "Activity Monitor") foot -e btop & ;;
   "GPU Monitor") foot -e nvtop & ;;
+  "Godot") godot --rendering-driver opengl3 & ;;
   "Code") desktop-menu-code & ;;
   "Music") desktop-menu-music & ;;
   "Video") desktop-menu-video & ;;

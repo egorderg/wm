@@ -1,64 +1,87 @@
 { config, pkgs, ... }:
 let
-	primaryDns = "1.1.1.1";
-	secondaryDns = "8.8.8.8";
-	lan = "192.168.178.0";
+  iinet = "wlo1";
+  ivpn = "wg0";
+	lan = "192.168.178.0/24";
+	lanBroadcast = "192.168.178.255";
+	guestLan = "192.168.179.0/24";
 in {
-	networking.enableIPv6 = false;
-	networking.nameservers = [ primaryDns secondaryDns ];
+  networking.enableIPv6 = false;
 
-	networking.firewall = {
+  # https://www.ivpn.net/knowledgebase/linux/linux-how-do-i-prevent-vpn-leaks-using-nftables-and-openvpn/
+	networking.nftables = {
 		enable = true;
-		extraCommands = ''
-		# Disallow traffic
-		iptables -P INPUT DROP
-		iptables -P FORWARD DROP
-		iptables -P OUTPUT DROP
+		ruleset = ''
+    flush ruleset
 
-		# Disallow ipv6 traffic
-		ip6tables -P INPUT DROP
-		ip6tables -P FORWARD DROP
-		ip6tables -P OUTPUT DROP
+    define VPN_PORTS = { 51820 }
 
-		# Loopback, Established and VPN
-		iptables -A OUTPUT -o lo -j ACCEPT
-		iptables -A INPUT -i lo -j ACCEPT
-		iptables -A OUTPUT -o tun+ -j ACCEPT
-		iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    table ip6 filter_ip6 {
+      chain INPUT {
+        type filter hook input priority 0; policy drop;
+      };
+      chain FORWARD {
+        type filter hook forward priority 0; policy drop;
+      };
+      chain OUTPUT {
+        type filter hook output priority 0; policy drop;
+      };
+    }
 
-		# Multicast
-		iptables -A INPUT -s 224.0.0.0/24 -j ACCEPT
-		iptables -A OUTPUT -d 224.0.0.0/24 -j ACCEPT
+    table ip killswitch {
+      chain INPUT {
+        type filter hook input priority 0; policy drop;
 
-		# DHCP
-		iptables -A INPUT -s 255.255.255.255 -j ACCEPT
-		iptables -A OUTPUT -d 255.255.255.255 -j ACCEPT
+        iifname "lo" counter accept
+        iifname ${iinet} ip daddr 224.0.0.0/24 counter accept
+        iifname ${iinet} ip saddr 255.255.255.255 counter accept
 
-		# LAN
-		iptables -A INPUT -s ${lan}/24 -j ACCEPT
-		iptables -A OUTPUT -d ${lan}/24 -j ACCEPT
+        ct state related,established accept
 
-		# DNS
-		iptables -A OUTPUT -d ${primaryDns} -j ACCEPT
-		iptables -A OUTPUT -d ${secondaryDns} -j ACCEPT
+        counter log prefix "NFT drop in: " drop
+        # counter drop
+      }
 
-		# Allow VPN connection
-		iptables -A OUTPUT -o wlo1 -p udp -m multiport --dports 80,1194,4569,5060,51820 -j ACCEPT
+      chain FORWARD {
+        type filter hook forward priority 0; policy drop;
+        counter log prefix "NFT drop fwd: " drop
+      }
 
-		# Logging
-		#iptables -N logging
-		#iptables -A INPUT -j logging
-		#iptables -A OUTPUT -j logging
-		#iptables -A logging -j LOG --log-prefix "IPTables: " --log-level 7
-		#iptables -A logging -j DROP
+      chain OUTPUT {
+        type filter hook output priority 0; policy drop;
+
+        oifname "lo" counter accept
+        oifname ${iinet} udp dport $VPN_PORTS counter accept
+        oifname ${ivpn} counter accept
+        oifname ${iinet} ip daddr 224.0.0.0/24 counter accept
+        oifname ${iinet} ip daddr 255.255.255.255 counter accept
+        oifname ${iinet} ip daddr ${lan} counter accept
+        oifname ${iinet} ip daddr ${guestLan} tcp dport 22222 counter accept
+
+        ct state related,established accept
+
+        counter log prefix "NFT drop out: " drop
+        # counter drop
+      }
+    }
 		'';
 	};
 
-	services.openvpn.servers = {
-		random = {
-			config = '' config /root/nixos/openvpn/random.ovpn '';
-			autoStart = true;
-			updateResolvConf = true;
-		};
-	};
+  networking.wg-quick.interfaces = {
+    wg0 = {
+      autostart = true;
+      address = [ "10.2.0.2/32" ];
+      dns = [ "10.2.0.1" ];
+      privateKeyFile = "/root/wireguard/pkey";
+
+      peers = [
+        {
+          publicKey = "XcWEb0DMaFBex2HD2DVUStifh6wBZe9ELo2N/KLlMHc=";
+          allowedIPs = [ "0.0.0.0/0" ];
+          endpoint = "194.126.177.13:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 }
