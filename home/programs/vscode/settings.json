@@ -1,12 +1,16 @@
 {
 	"telemetry.telemetryLevel": "off",
+	"extensions.autoUpdate": false,
 	"window.menuBarVisibility": "toggle",
-	"window.titleBarStyle": "custom",
+	"window.titleBarStyle": "native",
+	"window.commandCenter": false,
 	"window.restoreWindows": "none",
-	"workbench.editor.untitled.hint": "hidden",
 	"files.simpleDialog.enable": true,
+	"terminal.integrated.hideOnStartup": "always",
+	"explorer.autoReveal": false,
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.banner": "never",
+	"workbench.editor.untitled.hint": "hidden",
 	"workbench.activityBar.visible": false,
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.iconTheme": "vscode-icons",
@@ -19,6 +23,8 @@
 	"vsicons.presets.foldersAllDefaultIcon": true,
 	"vsicons.dontShowNewVersionMessage": true,
 	"breadcrumbs.enabled": false,
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorSurroundingLines": 5,
 	"editor.fontFamily": "'FiraCode Nerd Font Ret', 'monospace', monospace",
 	"editor.fontSize": 13,
 	"editor.lineHeight": 18,
@@ -59,12 +65,7 @@
 		"~/Documents/dev"
 	],
 	"git.confirmSync": false,
-	"dotnet.server.useOmnisharp": true,
 	"csharp.referencesCodeLens.enabled": false,
-	"omnisharp.enableEditorConfigSupport": true,
-	"omnisharp.enableRoslynAnalyzers": true,
-	"omnisharp.organizeImportsOnFormat": true,
-	"omnisharp.analyzeOpenDocumentsOnly": false,
 	"[csharp]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
@@ -88,17 +89,6 @@
 	"vim.useCtrlKeys": true,
 	"vim.foldfix": true,
 	"vim.leader": "<space>",
-	"vim.insertModeKeyBindings": [
-		{
-			"before": [
-				"j",
-				"j"
-			],
-			"after": [
-				"<Esc>"
-			]
-		}
-	],
 	"vim.normalModeKeyBindings": [
 		{
 			"before": [
@@ -183,6 +173,17 @@
 			"before": [
 				"<leader>",
 				"f",
+				"g"
+			],
+			"commands": [
+				"workbench.action.experimental.quickTextSearch"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
 				"s"
 			],
 			"commands": [
@@ -198,6 +199,17 @@
 			],
 			"commands": [
 				"workbench.action.showAllSymbols"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"t"
+			],
+			"commands": [
+				"workbench.action.quickOpenTerm"
 			],
 			"silent": true
 		},
@@ -582,15 +594,15 @@
 			]
 		}
 	],
-	"workbench.colorCustomizations": {
-		"[Tokyo Night]": {
-			"scrollbar.shadow": "#00000000",
-			"widget.shadow": "#00000000",
-			"editorGroupHeader.border": "#00000000",
-			"editorGroupHeader.noTabsBackground": "#1a1b26",
-			"statusBar.background": "#1a1b26",
-			"statusBar.noFolderBackground": "#1a1b26"
-		}
-	},
-	"workbench.colorTheme": "Tokyo Night"
+	"todohighlight.include": [
+		"**/*.cs",
+		"**/*.js",
+		"**/*.jsx",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.html",
+		"**/*.php",
+		"**/*.css",
+		"**/*.scss"
+	]
 }

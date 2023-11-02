@@ -195,7 +195,6 @@
 		#windowrulev2 = workspace 9, class:Mogul
 		windowrulev2 = float, class:Mogul
 		windowrulev2 = move 35% 5%, class:Mogul
-		#windowrulev2 = opacity 1.0 override 1.0 override, class:Mogul
 
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-idea
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-rider

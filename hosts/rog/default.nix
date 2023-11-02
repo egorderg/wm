@@ -1,3 +1,4 @@
+# https://github.com/NixOS/nixos-hardware
 { config, pkgs, lib, ... }:
 {
   imports = [
@@ -36,6 +37,8 @@
 	services = {
 		asusd.enable = true;
 
+		# fstrim.enable = true;
+
 		xserver = {
 			videoDrivers = ["nvidia"];
 		};
@@ -59,20 +62,21 @@
 					enableOffloadCmd = true;
 				};
 
+				# sudo lshw -c display
 				amdgpuBusId = "PCI:5:0:0";
 				nvidiaBusId = "PCI:1:0:0";
 			};
 		};
 
 		opengl = {
-			extraPackages = with pkgs; [ libvdpau-va-gl vaapiVdpau ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libvdpau-va-gl vaapiVdpau ];
+			extraPackages = with pkgs; [ vaapiVdpau ];
 		};
 	};
 
   environment.systemPackages = with pkgs; [
 		asusctl
 		sbctl
+		lshw
   ];
 
   system.stateVersion = "23.05";

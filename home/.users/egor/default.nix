@@ -17,7 +17,6 @@ in {
 			menu = "desktop-menu-all";
 		})
 
-		../../programs/jetbrains
 		../../programs/vscode
 		../../programs/lf
 		../../programs/monitor

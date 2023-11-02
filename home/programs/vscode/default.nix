@@ -10,7 +10,6 @@
 		extensions = with pkgs.vscode-extensions; [
 			alefragnani.project-manager
 			bbenoist.nix
-			enkia.tokyo-night
       ibm.output-colorizer
 			kamikillerto.vscode-colorize
 			ms-vscode-remote.remote-ssh
@@ -20,9 +19,9 @@
 			ms-dotnettools.csharp
 		] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 			{
-				name = "vscode-todo-highlight";
-				publisher = "wayou";
-				version = "1.0.5";
+				name = "todo-tree";
+				publisher = "gruntfuggly";
+				version = "0.0.226";
 				sha256 = "CQVtMdt/fZcNIbH/KybJixnLqCsz5iF1U0k+GfL65Ok=";
 			}
 			{

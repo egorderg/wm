@@ -1,5 +1,10 @@
 [
 	{
+		"key": "escape",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "!editorTextFocus"
+	},
+	{
 		"key": "ctrl+w ctrl+w",
 		"command": "workbench.action.focusNextGroup"
 	},
