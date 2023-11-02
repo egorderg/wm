@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
 		url = "https://github.com/godotengine/godot-builds/releases/download/${qualifier}/Godot_v${qualifier}_mono_linux_x86_64.zip";
-    sha256 = "IzubUA469Dr8hNMeCrwy7hKnmWs+1J8EObDiwEz4S20=";
+    sha256 = "PImKNkw6n0eSaPTij/odJKux9he1xyDU+IHXPLZGC9g=";
   };
 
   nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];

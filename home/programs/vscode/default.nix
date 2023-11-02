@@ -22,7 +22,7 @@
 				name = "todo-tree";
 				publisher = "gruntfuggly";
 				version = "0.0.226";
-				sha256 = "CQVtMdt/fZcNIbH/KybJixnLqCsz5iF1U0k+GfL65Ok=";
+				sha256 = "Fj9cw+VJ2jkTGUclB1TLvURhzQsaryFQs/+f2RZOLHs=";
 			}
 			{
 				name = "remote-explorer";

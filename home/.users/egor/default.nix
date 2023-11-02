@@ -1,7 +1,6 @@
 { hyprland, pkgs, lib, ... }:
 let
 	all = pkgs.writeShellScriptBin "desktop-menu-all" (builtins.readFile ./menu/all);
-	code = pkgs.writeShellScriptBin "desktop-menu-code" (builtins.readFile ./menu/code);
 	music = pkgs.writeShellScriptBin "desktop-menu-music" (builtins.readFile ./menu/music);
 	pass = pkgs.writeShellScriptBin "desktop-menu-pass" (builtins.readFile ./menu/pass);
 	settings = pkgs.writeShellScriptBin "desktop-menu-settings" (builtins.readFile ./menu/settings);
@@ -33,7 +32,6 @@ in {
 
 	home.packages = with pkgs; [
 		all
-		code
 		music
 		pass
 		settings
