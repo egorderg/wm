@@ -42,7 +42,6 @@ in {
 		pavucontrol
 		imagemagick
 		yt-dlp
-		megacmd
 		pwgen
 		imv
 		bat
@@ -51,6 +50,7 @@ in {
 		gimp
 		evince
 		ymuse
+    pyload-ng
 
 		firefox
 		librewolf
@@ -59,9 +59,11 @@ in {
 		winetricks
 
     jdk17
+    python3
 		dotnet-sdk_7
+    rustup
+    clang
 		gnumake
-		inotify-tools
 
 		(callPackage ../../programs/godot-mono.nix { })
 	];
@@ -80,6 +82,7 @@ in {
 
 		DOTNET_CLI_TELEMETRY_OPTOUT = 1;
 		DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
+    LIBCLANG_PATH = pkgs.lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
 	};
 
 	programs.fish = {

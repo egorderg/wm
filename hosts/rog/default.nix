@@ -37,8 +37,6 @@
 	services = {
 		asusd.enable = true;
 
-		# fstrim.enable = true;
-
 		xserver = {
 			videoDrivers = ["nvidia"];
 		};

@@ -27,7 +27,7 @@
 	"editor.cursorSurroundingLines": 5,
 	"editor.fontFamily": "'FiraCode Nerd Font Ret', 'monospace', monospace",
 	"editor.fontSize": 13,
-	"editor.lineHeight": 18,
+	"editor.lineHeight": 17,
 	"editor.indentSize": 2,
 	"editor.tabSize": 2,
 	"editor.renderWhitespace": "none",
@@ -66,6 +66,7 @@
 	],
 	"git.confirmSync": false,
 	"csharp.referencesCodeLens.enabled": false,
+	"omnisharp.enableRoslynAnalyzers": true,
 	"[csharp]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
@@ -221,6 +222,17 @@
 			],
 			"commands": [
 				"workbench.action.tasks.runTask"
+			],
+			"silent": true
+		},
+		{
+			"before": [
+				"<leader>",
+				"t",
+				"r"
+			],
+			"commands": [
+				"workbench.action.tasks.reRunTask"
 			],
 			"silent": true
 		},

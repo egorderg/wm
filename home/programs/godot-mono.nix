@@ -18,16 +18,16 @@
 }:
 
 let
-  qualifier = "4.2-beta4";
+  qualifier = "4.2.1-stable";
 in
 
 stdenv.mkDerivation rec {
   pname = "godot-mono-bin";
-  version = "4.2-beta4";
+  version = "4.2.1-stable";
 
   src = fetchurl {
 		url = "https://github.com/godotengine/godot-builds/releases/download/${qualifier}/Godot_v${qualifier}_mono_linux_x86_64.zip";
-    sha256 = "PImKNkw6n0eSaPTij/odJKux9he1xyDU+IHXPLZGC9g=";
+    sha256 = "kYC6b2elFvSdI0wcTDn1K/ZQ7fQXoskEVvXORY+fEEE=";
   };
 
   nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];

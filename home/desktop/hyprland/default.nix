@@ -68,8 +68,8 @@
       kb_options = compose:ralt
 
       follow_mouse = 1
-      mouse_refocus = false
-      # mouse_refocus = true
+      # mouse_refocus = false
+      mouse_refocus = true
 
 		  touchpad {
 		    natural_scroll = false
@@ -191,11 +191,7 @@
 		windowrule = float, title:DevTools
 		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
-    #windowrulev2 = noinitialfocus, class:Mogul
-		#windowrulev2 = workspace 9, class:Mogul
-		windowrulev2 = float, class:Mogul
-		windowrulev2 = move 35% 5%, class:Mogul
-
+		windowrulev2 = opacity 1.0 override 1.0 override, class:Godot
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-idea
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-rider
 		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-gateway
@@ -238,7 +234,7 @@
 		bind = , XF86KbdBrightnessUp, exec, asusctl -n
 		bind = , XF86Launch1, exec, asusctl led-mode -n
 		bind = , XF86RFKill, exec, rfkill toggle all
-		bind = , Print, exec, grim -g "$(slurp)" ~/Desktop/screenshot.png
+		bind = , Print, exec, grim -g "$(slurp)" ~/Desktop/$(date +'%s.png')
 
 		# Focus
 		bind = $mainMod, h, movefocus, l

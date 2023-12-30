@@ -10,13 +10,13 @@
 		extensions = with pkgs.vscode-extensions; [
 			alefragnani.project-manager
 			bbenoist.nix
-      ibm.output-colorizer
 			kamikillerto.vscode-colorize
 			ms-vscode-remote.remote-ssh
 			usernamehw.errorlens
 			vscode-icons-team.vscode-icons
 			vscodevim.vim
 			ms-dotnettools.csharp
+      vadimcn.vscode-lldb
 		] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 			{
 				name = "todo-tree";
