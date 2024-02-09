@@ -36,7 +36,6 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		systemd.enable = true;
-		enableNvidiaPatches = true;
 		extraConfig = ''
 		# Launch
 		exec-once = hyprctl setcursor Catppuccin-Mocha-Dark-Cursors 24
@@ -87,8 +86,6 @@
 
 		  col.active_border = 0xFF7AA2F7 0xFF61AFEF 45deg
 		  col.inactive_border = rgba(595959aa)
-		  col.group_border = 0x00000000
-		  col.group_border_active = 0x00000000
 
 		  layout = dwindle
 
@@ -97,10 +94,6 @@
 		}
 
 		misc {
-		  render_titles_in_groupbar = false
-		  groupbar_titles_font_size = 8
-		  groupbar_gradients = false
-
 		  disable_hyprland_logo = true
 		  disable_splash_rendering = true
 		  mouse_move_enables_dpms = true
@@ -120,8 +113,6 @@
 
 		decoration {
 		  rounding = 6
-		  multisample_edges = true
-
 		  active_opacity = 1.0
 		  inactive_opacity = 0.85
 
@@ -200,7 +191,7 @@
 		$mainMod = SUPER
 
 		# Launcher
-		bind = $mainMod SHIFT, RETURN, exec, ${terminal}
+		bind = $mainMod, RETURN, exec, ${terminal}
 		bind = $mainMod, Space, exec, ${menu}
 		bind = $mainMod, q, killactive, 
 		bind = $mainMod SHIFT, Escape, exit, 
@@ -217,6 +208,8 @@
 		# Music
 		bind = , XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -2000
 		bind = , XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +2000
+		bind = $mainMod, mouse_down, exec, pactl set-sink-volume @DEFAULT_SINK@ -2000
+		bind = $mainMod, mouse_up, exec, pactl set-sink-volume @DEFAULT_SINK@ +2000
 		bind = , XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle
 		bind = , XF86AudioPrev, exec, mpc prev
 		bind = , XF86AudioNext, exec, mpc next

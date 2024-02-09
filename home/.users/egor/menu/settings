@@ -1,14 +1,16 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Audio\nBluetooth\nGPU\nNetwork\nPrinter\nROG Control Center" | $DMENU -p Settings:);
+COMMAND=$(echo -e "Audio\nBluetooth\nGPU\nNetwork\nPrinter\nPyload\nPlex\nROG Control Center" | $DMENU -p Settings:);
 
 case $COMMAND in
 
-  "Bluetooth") foot -e bluetuith & ;;
+  "Bluetooth") blueman-manager & ;;
   "GPU") nvidia-settings & ;;
   "Audio") pavucontrol & ;;
   "Network") foot -e nmtui & ;;
   "Printer") xdg-open "http://localhost:631/" & ;;
+  "Pyload") xdg-open "http://localhost:8000/" & ;;
+  "Plex") xdg-open "http://192.168.178.35:32400" & ;;
   "ROG Control Center") rog-control-center ;;
 
 esac

@@ -1,12 +1,11 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nObsidian\nFinder\nCava\nActivity Monitor\nGPU Monitor\nGodot\nCode\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
+COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nFinder\nCava\nActivity Monitor\nGPU Monitor\nGodot\nCode\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
   "Browser") librewolf & ;;
   "Media Browser") firefox & ;;
   "Gimp") gimp & ;;
-  "Obsidian") obsidian & ;;
   "Finder") foot -e lf & ;;
   "Cava") foot -e cava & ;;
   "Activity Monitor") foot -e btop & ;;

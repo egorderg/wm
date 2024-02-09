@@ -28,6 +28,8 @@ in {
 
 		../../services/gpg.nix
 	  ../../services/mpd.nix
+
+	  ./android-sdk.nix
 	];
 
 	home.packages = with pkgs; [
@@ -38,7 +40,6 @@ in {
 		video
 		system
 
-		bluetuith
 		pavucontrol
 		imagemagick
 		yt-dlp
@@ -46,7 +47,6 @@ in {
 		imv
 		bat
 		trash-cli
-		obsidian
 		gimp
 		evince
 		ymuse
@@ -58,17 +58,26 @@ in {
 		wineWowPackages.stable
 		winetricks
 
-    jdk17
+    helix
+		tree-sitter
+    omnisharp-roslyn
+
+    jdk
+    gradle
     python3
-		dotnet-sdk_7
+    nodejs_20
     rustup
     clang
 		gnumake
+    (with dotnetCorePackages; combinePackages [
+      sdk_7_0
+      sdk_8_0
+    ])
 
 		(callPackage ../../programs/godot-mono.nix { })
 	];
 
-	home.sessionVariables = {
+	home.sessionVariables = rec {
 		BROWSER = "librewolf";
 
 		# GBM_BACKEND = "nvidia-drm";
@@ -80,8 +89,9 @@ in {
 		LIBVA_DRIVER_NAME = "radeonsi";
 		VDPAU_DRIVER = "radeonsi";
 
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_7_0}";
 		DOTNET_CLI_TELEMETRY_OPTOUT = 1;
-		DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
+    JAVA_HOME = "${pkgs.jdk.home}";
     LIBCLANG_PATH = pkgs.lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
 	};
 
@@ -117,7 +127,7 @@ in {
 			ls = "ls --color=auto";
 			passgen25 = "pwgen -s -c -n 25";
 			passgen18 = "pwgen -s -c -n 18";
-			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com -o Compression=no";
+			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com -o Compression=yes";
 			xssh = "TERM=xterm ssh";
 		};
 		plugins = [

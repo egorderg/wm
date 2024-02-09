@@ -10,14 +10,20 @@
 		extensions = with pkgs.vscode-extensions; [
 			alefragnani.project-manager
 			bbenoist.nix
-			kamikillerto.vscode-colorize
 			ms-vscode-remote.remote-ssh
 			usernamehw.errorlens
 			vscode-icons-team.vscode-icons
 			vscodevim.vim
-			ms-dotnettools.csharp
       vadimcn.vscode-lldb
+      ms-dotnettools.csharp
+      sumneko.lua
 		] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+			{
+				name = "csharpier-vscode";
+				publisher = "csharpier";
+				version = "1.5.2";
+				sha256 = "A2AGcUF1SQuSPECghArBxx/gi5JiIk7o6wzfgCPcfgI=";
+			}
 			{
 				name = "todo-tree";
 				publisher = "gruntfuggly";

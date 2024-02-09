@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DISABLED=$(systemctl status firewall.service | grep inactive)
+DISABLED=$(systemctl status nftables.service | grep inactive)
 if [[ $DISABLED ]]; then
   printf "󱜢"
 else

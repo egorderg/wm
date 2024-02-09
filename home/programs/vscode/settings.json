@@ -10,7 +10,7 @@
 	"explorer.autoReveal": false,
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.banner": "never",
-	"workbench.editor.untitled.hint": "hidden",
+	"workbench.editor.empty.hint": "hidden",
 	"workbench.activityBar.visible": false,
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.iconTheme": "vscode-icons",
