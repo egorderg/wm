@@ -7,7 +7,7 @@
 		mediainfo
 		libcdio
 		poppler_utils
-		(callPackage ./lf-sixel.nix { })
+    lf
 	];
 
 	xdg.configFile."lf/previewer.sh".source = pkgs.writeShellScript "previewer.sh" (builtins.readFile ./previewer.sh);

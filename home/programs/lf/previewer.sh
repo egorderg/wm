@@ -4,7 +4,7 @@
 
 image() {
 	geometry="$(($2-2))x$3"
-	chafa "$1" -f sixel -s "$geometry" --animate false
+	chafa "$1" -f sixel -s "$geometry" --animate false --polite on
 }
 
 batorcat() {

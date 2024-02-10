@@ -9,8 +9,8 @@ keybinds clear-defaults=true {
     bind "Alt r" { NewPane "Right"; }
     bind "Alt w" { ToggleFloatingPanes; }
     bind "Alt q" { CloseFocus; }
-    bind "Alt h" { MoveFocus "Left"; }
-    bind "Alt l" { MoveFocus "Right"; }
+    bind "Alt h" { MoveFocusOrTab "Left"; }
+    bind "Alt l" { MoveFocusOrTab "Right"; }
     bind "Alt j" { MoveFocus "Down"; }
     bind "Alt k" { MoveFocus "Up"; }
     bind "Alt =" { Resize "Increase"; }
@@ -18,7 +18,8 @@ keybinds clear-defaults=true {
 
     // Tabs
     bind "Alt t" { NewTab; }
-    bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+    bind "Alt n" { SwitchToMode "RenameTab"; TabNameInput 0; }
+    bind "Alt s" { ToggleActiveSyncTab; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }
     bind "Alt 3" { GoToTab 3; }
@@ -28,6 +29,20 @@ keybinds clear-defaults=true {
     bind "Alt 7" { GoToTab 7; }
     bind "Alt 8" { GoToTab 8; }
     bind "Alt 9" { GoToTab 9; }
+
+    // Session
+    bind "Alt o" { SwitchToMode "Session"; }
+  }
+  session {
+    bind "Alt o" { SwitchToMode "Normal"; }
+    bind "d" { Detach; }
+    bind "w" {
+      LaunchOrFocusPlugin "zellij:session-manager" {
+        floating true
+        move_to_focused_tab true
+      };
+      SwitchToMode "Normal"
+    }  
   }
   renametab {
     bind "Enter" { SwitchToMode "Normal"; }
@@ -36,29 +51,14 @@ keybinds clear-defaults=true {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+  tab-bar { path "tab-bar"; }
+  status-bar { path "status-bar"; }
+  strider { path "strider"; }
+  compact-bar { path "compact-bar"; }
+  session-manager { path "session-manager"; }
 }
 
-themes {
-  tokyo-night {
-    fg 169 177 214
-    bg 26 27 38
-    black 56 62 90
-    red 249 51 87
-    green 158 206 106
-    yellow 224 175 104
-    blue 122 162 247
-    magenta 187 154 247
-    cyan 42 195 222
-    white 192 202 245
-    orange 255 158 100
-  }
-}
-
-theme "tokyo-night"
+on_force_close "detach"
 simplified_ui true
 pane_frames false
 mouse_mode true

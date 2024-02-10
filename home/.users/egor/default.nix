@@ -20,7 +20,8 @@ in {
 		../../programs/lf
 		../../programs/monitor
     ../../programs/qmv
-		../../programs/foot.nix
+		../../programs/foot
+		../../programs/zellij
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
@@ -78,6 +79,7 @@ in {
 	];
 
 	home.sessionVariables = rec {
+		EDITOR = "hx";
 		BROWSER = "librewolf";
 
 		# GBM_BACKEND = "nvidia-drm";
@@ -106,12 +108,7 @@ in {
 			# GRC
 			set -U grc_plugin_execs make ifconfig ls ping ps tail traceroute mount diff
 
-			# Vi
-			fish_vi_key_bindings insert
-			set fish_cursor_default block
-			set fish_cursor_insert line
-			set fish_cursor_replace_one underscore
-			set fish_cursor_visual block
+			fish_default_key_bindings
 		'';
 		loginShellInit = ''
 			if test (tty) = /dev/tty1
@@ -125,6 +122,7 @@ in {
 			l = "ls -l --color=auto --group-directories-first";
 			ll = "ls -lA --color=auto --group-directories-first";
 			ls = "ls --color=auto";
+			dev = "cd ~/Documents/dev";
 			passgen25 = "pwgen -s -c -n 25";
 			passgen18 = "pwgen -s -c -n 18";
 			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com -o Compression=yes";
