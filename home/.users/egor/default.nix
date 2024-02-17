@@ -21,7 +21,7 @@ in {
 		../../programs/monitor
     ../../programs/qmv
 		../../programs/foot
-		../../programs/zellij
+		../../programs/helix
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
@@ -58,13 +58,14 @@ in {
 
 		wineWowPackages.stable
 		winetricks
-
-    helix
+		
+		tmux
+		watchexec
+		just
 		tree-sitter
-    omnisharp-roslyn
 
+		go
     jdk
-    gradle
     python3
     nodejs_20
     rustup
@@ -79,7 +80,6 @@ in {
 	];
 
 	home.sessionVariables = rec {
-		EDITOR = "hx";
 		BROWSER = "librewolf";
 
 		# GBM_BACKEND = "nvidia-drm";
@@ -91,6 +91,7 @@ in {
 		LIBVA_DRIVER_NAME = "radeonsi";
 		VDPAU_DRIVER = "radeonsi";
 
+		GOPATH = "/home/egor/.go";
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_7_0}";
 		DOTNET_CLI_TELEMETRY_OPTOUT = 1;
     JAVA_HOME = "${pkgs.jdk.home}";

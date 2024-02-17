@@ -81,7 +81,7 @@
 
 		general {
 		  gaps_in = 5
-		  gaps_out = 10
+		  gaps_out = 12
 		  border_size = 0
 
 		  col.active_border = 0xFF7AA2F7 0xFF61AFEF 45deg
@@ -180,12 +180,8 @@
 		windowrule = float, pavucontrol
 		windowrule = float, file-roller
 		windowrule = float, title:DevTools
-		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
-		windowrulev2 = opacity 1.0 override 1.0 override, class:Godot
-		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-idea
-		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-rider
-		windowrulev2 = opacity 1.0 override 1.0 override, class:jetbrains-gateway
+		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
 		# Bindings
 		$mainMod = SUPER

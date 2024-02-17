@@ -1,0 +1,58 @@
+
+[language-server]
+omnisharp = { command = "OmniSharp", args = [ "--languageserver" ] }
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+[[language]]
+name = "c-sharp"
+scope = "source.csharp"
+injection-regex = "c-?sharp"
+file-types = ["cs", "csx", "cake"]
+roots = ["sln", "csproj"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "\t" }
+language-servers = [ "omnisharp" ]
+
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["go.work", "go.mod"]
+auto-format = true
+comment-token = "//"
+language-servers = [ "gopls", "golangci-lint-lsp" ]
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
+name = "javascript"
+formatter = { command = "npx", args = ["prettier", "--parser", "javascript"] }
+indent = { tab-width = 2, unit = "\t" }
+auto-format=true
+
+[[language]]
+name = "typescript"
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+indent = { tab-width = 2, unit = "\t" }
+auto-format=true
+
+[[language]]
+name = "tsx"
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+indent = { tab-width = 2, unit = "\t" }
+auto-format = true
+
+[[grammar]]
+name = "c-sharp"
+source = { git = "https://github.com/tree-sitter/tree-sitter-c-sharp", rev = "5b60f99545fea00a33bbfae5be956f684c4c69e2" }
+

@@ -5,5 +5,7 @@ layout {
     }
     children
   }
-  tab name="main"
+  tab name="main" {
+    pane borderless=true
+  }
 }

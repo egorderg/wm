@@ -1,0 +1,148 @@
+theme = "onedark"
+
+[editor]
+true-color = true
+line-number="relative"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+separator = "|"
+left = ["mode", "spacer", "position-percentage", "position", "selections"]
+center = ["spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+right = ["spacer", "workspace-diagnostics", "version-control"]
+
+[editor.cursor-shape]
+insert="bar"
+normal="block"
+select="underline"
+
+[editor.file-picker]
+hidden=true
+git-ignore=true
+
+[keys.normal]
+x = "extend_to_line_bounds"
+X = "extend_line_below"
+A-h = "select_prev_sibling"
+A-l = "select_next_sibling"
+A-j = "shrink_selection"
+A-k = "expand_selection"
+
+[keys.select]
+x = "extend_to_line_bounds"
+X = "extend_line_below"
+A-h = "select_prev_sibling"
+A-l = "select_next_sibling"
+A-j = "shrink_selection"
+A-k = "expand_selection"
+
+[keys.normal."space"]
+";" = ":config-reload"
+# Disable LSP
+a = "no_op"
+k = "no_op"
+r = "no_op"
+h = "no_op"
+# Disable Pickers
+y = "no_op"
+Y = "no_op"
+p = "no_op"
+P = "no_op"
+R = "no_op"
+F = "no_op"
+j = "no_op"
+s = "no_op"
+S = "no_op"
+d = "no_op"
+D = "no_op"
+"?" = "no_op"
+"'" = "no_op"
+"/" = "no_op"
+
+[keys.normal."space"."n"]
+n = ":new"
+v = ":vsplit-new"
+h = ":hsplit-new"
+
+[keys.normal."space"."b"]
+c = ":bc"
+o = ":bco"
+n = ":bn"
+p = ":bp"
+
+[keys.normal."space"."f"]
+f = "file_picker"
+F = "file_picker_in_current_directory"
+g = "global_search"
+b = "buffer_picker"
+j = "jumplist_picker"
+s = "symbol_picker"
+S = "workspace_symbol_picker"
+d = "diagnostics_picker"
+D = "workspace_diagnostics_picker"
+c = "command_palette"
+"'" = "last_picker"
+
+[keys.normal."space"."l"]
+h = "hover"
+n = "rename_symbol"
+a = "code_action"
+s = "select_references_to_symbol_under_cursor"
+
+[keys.normal."space"."w"]
+w = ":w"
+a = ":wa"
+c = ":wbc"
+# Disable window specific things
+C-w = "no_op"
+C-s = "no_op"
+C-v = "no_op"
+C-t = "no_op"
+C-q = "no_op"
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+o = "no_op"
+j = "no_op"
+h = "no_op"
+k = "no_op"
+l = "no_op"
+C-o = "no_op"
+C-j = "no_op"
+C-h = "no_op"
+C-k = "no_op"
+C-l = "no_op"
+s = "no_op"
+v = "no_op"
+t = "no_op"
+f = "no_op"
+n = "no_op"
+F = "no_op"
+H = "no_op"
+J = "no_op"
+K = "no_op"
+L = "no_op"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+C-s="no_op"
+C-x="no_op"
+C-r="no_op"
+C-w="no_op"
+C-u="no_op"
+C-k="no_op"
+C-h="no_op"
+C-d="no_op"
+C-j="no_op"
+A-d="no_op"
+

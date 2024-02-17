@@ -11,7 +11,7 @@
 			name = "foot-code.ini";
 			title = "foot-code";
 			pad = "0x0";
-			size = "14";
+			size = "13";
 		})
 	];
 
