@@ -6,4 +6,5 @@
 
 	xdg.configFile."zellij/config.kdl".source = ./config.kdl;
 	xdg.configFile."zellij/layouts/default.kdl".source = ./layouts/default.kdl;
+	xdg.configFile."zellij/plugins/zjstatus.wasm".source = ./plugins/zjstatus.wasm;
 }

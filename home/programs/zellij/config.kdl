@@ -1,25 +1,11 @@
 keybinds clear-defaults=true {
   normal {
-    bind "Alt q" { Quit; }
-    bind "Alt [" { PreviousSwapLayout; }
-    bind "Alt ]" { NextSwapLayout; }
-
-    // Pane
-    bind "Alt d" { NewPane "Down"; }
-    bind "Alt r" { NewPane "Right"; }
-    bind "Alt w" { ToggleFloatingPanes; }
-    bind "Alt q" { CloseFocus; }
-    bind "Alt h" { MoveFocusOrTab "Left"; }
-    bind "Alt l" { MoveFocusOrTab "Right"; }
-    bind "Alt j" { MoveFocus "Down"; }
-    bind "Alt k" { MoveFocus "Up"; }
-    bind "Alt =" { Resize "Increase"; }
-    bind "Alt -" { Resize "Decrease"; }
+    bind "Alt w" { SwitchToMode "Pane"; }
+    bind "Alt t" { SwitchToMode "Tab"; }
+    bind "Alt o" { SwitchToMode "Session"; }
+    bind "Alt f" { ToggleFloatingPanes; }
 
     // Tabs
-    bind "Alt t" { NewTab; }
-    bind "Alt n" { SwitchToMode "RenameTab"; TabNameInput 0; }
-    bind "Alt s" { ToggleActiveSyncTab; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }
     bind "Alt 3" { GoToTab 3; }
@@ -29,9 +15,25 @@ keybinds clear-defaults=true {
     bind "Alt 7" { GoToTab 7; }
     bind "Alt 8" { GoToTab 8; }
     bind "Alt 9" { GoToTab 9; }
-
-    // Session
-    bind "Alt o" { SwitchToMode "Session"; }
+  }
+  pane {
+    bind "q" { Quit; }
+    bind "q" { CloseFocus; }
+    bind "s" { NewPane "Down"; }
+    bind "v" { NewPane "Right"; }
+    bind "h" { MoveFocusOrTab "Left"; }
+    bind "l" { MoveFocusOrTab "Right"; }
+    bind "j" { MoveFocus "Down"; }
+    bind "k" { MoveFocus "Up"; }
+    bind "=" { Resize "Increase"; }
+    bind "-" { Resize "Decrease"; }
+    bind "Esc" { SwitchToMode "Normal"; }
+  }
+  tab {
+    bind "n" { NewTab; }
+    bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+    bind "s" { ToggleActiveSyncTab; }
+    bind "Esc" { SwitchToMode "Normal"; }
   }
   session {
     bind "Alt o" { SwitchToMode "Normal"; }
@@ -64,3 +66,19 @@ pane_frames true
 mouse_mode true
 default_mode "normal"
 default_layout "default"
+
+themes {
+  default {
+    fg "#abb2bf"
+    bg "#282c34"
+    black "#282c34"
+    red "#e06c75"
+    green "#98c379"
+    yellow "#e5c07b"
+    blue "#61afef"
+    magenta "#be5046"
+    cyan "#56b6c2"
+    white "#abb2bf"
+    orange "#e5c07b"
+  }
+}

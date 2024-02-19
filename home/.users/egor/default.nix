@@ -22,6 +22,7 @@ in {
     ../../programs/qmv
 		../../programs/foot
 		../../programs/helix
+		../../programs/zellij
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
@@ -59,7 +60,6 @@ in {
 		wineWowPackages.stable
 		winetricks
 		
-		tmux
 		watchexec
 		just
 		tree-sitter

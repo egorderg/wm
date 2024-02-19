@@ -10,7 +10,7 @@
 		(import ./config.nix {
 			name = "foot-code.ini";
 			title = "foot-code";
-			pad = "0x0";
+			pad = "22x20";
 			size = "13";
 		})
 	];

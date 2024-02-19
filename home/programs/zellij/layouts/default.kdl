@@ -1,9 +1,24 @@
 layout {
   default_tab_template {
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
     children
+    pane size=1 borderless=true {
+      plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+        format_left  "{mode} {tabs}"
+        format_right "#[bg=blue,fg=black] {session} "
+        format_space ""
+
+        border_enabled "false"
+
+        mode_normal "#[bg=blue,fg=black] NORMAL "
+        mode_pane "#[bg=red,fg=black] WINDOW "
+        mode_tab "#[bg=yellow,fg=black] TAB "
+
+        tab_normal " {name} "
+        tab_active "#[bg=#393e48] {name} "
+
+        hide_frame_for_single_pane "true"
+      }
+    }
   }
   tab name="main" {
     pane borderless=true
