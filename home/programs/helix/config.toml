@@ -23,8 +23,6 @@ hidden=true
 git-ignore=true
 
 [keys.normal]
-x = "extend_to_line_bounds"
-X = "extend_line_below"
 A-h = "select_prev_sibling"
 A-l = "select_next_sibling"
 A-j = "shrink_selection"

@@ -126,7 +126,7 @@ in {
 			dev = "cd ~/Documents/dev";
 			passgen25 = "pwgen -s -c -n 25";
 			passgen18 = "pwgen -s -c -n 18";
-			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com -o Compression=yes";
+			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com";
 			xssh = "TERM=xterm ssh";
 		};
 		plugins = [
