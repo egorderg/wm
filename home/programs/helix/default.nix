@@ -6,6 +6,7 @@
     extraPackages = with pkgs; [ 
       omnisharp-roslyn
 		  gopls
+      delve
     ];
   };
 
