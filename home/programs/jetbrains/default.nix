@@ -3,7 +3,7 @@
   home.file.".ideavimrc".source = ./ideavimrc;
 
   home.packages = with pkgs; [
-		jetbrains.rider
+		jetbrains.goland
 		jetbrains.gateway
   ];
 }

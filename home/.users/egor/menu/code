@@ -1,0 +1,11 @@
+#!/bin/bash
+
+COMMAND=$(echo -e "Goland\nGateway" | $DMENU -p Code:);
+
+case $COMMAND in
+
+  "Goland") goland & ;;
+  "Gateway") gateway & ;;
+
+esac
+

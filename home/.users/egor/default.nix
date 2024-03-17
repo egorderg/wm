@@ -1,6 +1,7 @@
 { hyprland, pkgs, lib, ... }:
 let
 	all = pkgs.writeShellScriptBin "desktop-menu-all" (builtins.readFile ./menu/all);
+	code = pkgs.writeShellScriptBin "desktop-menu-code" (builtins.readFile ./menu/code);
 	music = pkgs.writeShellScriptBin "desktop-menu-music" (builtins.readFile ./menu/music);
 	pass = pkgs.writeShellScriptBin "desktop-menu-pass" (builtins.readFile ./menu/pass);
 	settings = pkgs.writeShellScriptBin "desktop-menu-settings" (builtins.readFile ./menu/settings);
@@ -8,6 +9,8 @@ let
 	video = pkgs.writeShellScriptBin "desktop-menu-video" (builtins.readFile ./menu/video);
 in {
 	imports = [
+		../../desktop/kde
+
 		(import ../../desktop/hyprland {
 			waybar = "aero";
 			wallpaper = "egor/assets/wallpaper.jpg";
@@ -16,13 +19,13 @@ in {
 			menu = "desktop-menu-all";
 		})
 
-		../../programs/vscode
 		../../programs/lf
 		../../programs/monitor
     ../../programs/qmv
 		../../programs/foot
 		../../programs/helix
 		../../programs/zellij
+		../../programs/jetbrains
 		../../programs/pass.nix
 		../../programs/cava.nix
 		../../programs/mpv.nix
@@ -36,6 +39,7 @@ in {
 
 	home.packages = with pkgs; [
 		all
+		code
 		music
 		pass
 		settings
@@ -60,6 +64,7 @@ in {
 		wineWowPackages.stable
 		winetricks
 		
+		glow
 		watchexec
 		just
 		tree-sitter
@@ -126,7 +131,6 @@ in {
 			dev = "cd ~/Documents/dev";
 			passgen25 = "pwgen -s -c -n 25";
 			passgen18 = "pwgen -s -c -n 18";
-			fastssh = "TERM=xterm ssh -c aes128-gcm@openssh.com";
 			xssh = "TERM=xterm ssh";
 		};
 		plugins = [

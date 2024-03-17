@@ -1,10 +1,5 @@
 " :actionlist ${query} to list available actions
 
-" Plugins
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-
 " Common
 set scrolloff=5
 set sidescrolloff=5
@@ -19,7 +14,10 @@ set smartcase
 
 set clipboard^=unnamedplus
 set ideastatusicon=gray
+set ideawrite=all
+set idearefactormode=select
 set ideamarks
+set ideajoin
 
 let mapleader = " "
 
@@ -34,16 +32,14 @@ vnoremap p pgvy
 nmap s <Plug>(easymotion-s)
 nnoremap <esc> :noh<CR><esc>
 
-nmap <leader>zen <Action>(ToggleDistractionFreeMode)
-
 nmap mm <Action>(Bookmarks.Toggle)
 nmap mg <Action>(Bookmarks.Goto)
 
 nmap <leader>, <Action>(OpenFile)
-" wayland: nmap <leader>. <Action>(ManageRecentProjects)
-nmap <leader>. <Action>(OpenProjectWindows)
+nmap <leader>. <Action>(ManageRecentProjects)
+" nmap <leader>. <Action>(OpenProjectWindows)
 
-" wayland: nmap <leader>fm <Action>(ShowBookmarks)
+nmap <leader>fm <Action>(ShowBookmarks)
 nmap <leader>fg <Action>(FindInPath)
 nmap <leader>fb <Action>(RecentFiles)
 nmap <leader>fl <Action>(RecentLocations)
@@ -57,18 +53,12 @@ nmap <leader>gg <Action>(Git.ContextMenu)
 nmap <leader>gb <Action>(Git.Branches)
 nmap <leader>gc <Action>(ActivateCommitToolWindow)
 
-nmap <leader>sv <Action>(SplitHorizontally)
-nmap <leader>sh <Action>(SplitVertically)
-
-nmap <leader>q <Action>(CloseAllEditors)
+nmap <leader>bq <Action>(CloseAllEditors)
 nmap <leader>bc <Action>(CloseContent)
 nmap <leader>bd <Action>(Git.CompareWithBranch)
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <leader>bf <Action>(Find)
 nmap <leader>br <Action>(Replace)
-
-nmap <leader>ww <Action>(SaveDocument)
-nmap <leader>wa <Action>(SaveAll)
 
 nmap <leader>vv <Action>(ToolWindowsGroup)
 nmap <leader>vw <Action>(HideAllWindows)
@@ -78,23 +68,21 @@ nmap <leader>vo <Action>(ActivateTODOToolWindow)
 nmap <leader>vt <Action>(ActivateTerminalToolWindow)
 nmap <leader>vp <Action>(ActivateProblemsViewToolWindow)
 nmap <leader>vs <Action>(ActivateStructureToolWindow)
-nmap <leader>vs <Action>(ActivateStructureToolWindow)
 nmap <leader>vr <Action>(ActivateRunToolWindow)
 nmap <leader>vd <Action>(ActivateDebugToolWindow)
 
 nmap <leader>pr <Action>(RunAnything)
 nmap <leader>pa <Action>(InspectCode)
-nmap <leader>pd <Action>(Debug)
 
 nmap dt <Action>(ToggleLineBreakpoint)
 nmap dc <Action>(Debugger.RemoveAllBreakpoints)
 nmap dv <Action>(ViewBreakpoints)
 nmap dr <Action>(RunClass)
-nmap da <Action>(XDebugger.AttachToProcess)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>dc <Action>(Resume)
 nmap <leader>dr <Action>(Run)
-nmap <leader>da <Action>(DebuggingActionsGroup)
+nmap <leader>dd <Action>(DebuggingActionsGroup)
+nmap <leader>da <Action>(XDebugger.AttachToProcess)
 
 nmap <leader>gu <Action>(FindUsages)
 nmap gr <Action>(Generate)

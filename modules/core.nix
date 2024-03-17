@@ -35,6 +35,7 @@
 
 	environment.systemPackages = with pkgs; [
     tcpdump
+		pv
 		git
 		grc
 		fd

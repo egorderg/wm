@@ -183,6 +183,13 @@
 
 		windowrulev2 = opacity 0.95 0.95,class:^(${terminal})$
 
+		#windowrulev2 = stayfocused,class:^(jetbrains-.*)
+		#windowrulev2 = noinitialfocus,class:^jetbrains-(?!toolbox),floating:1
+		windowrulev2 = windowdance, class:^(.*jetbrains.*)$
+		windowrulev2 = noinitialfocus, class:^(.*jetbrains.*)$, title:^(win.*)$
+		windowrulev2 = nofocus, class:^(.*jetbrains.*)$, title:^(win.*)$
+		windowrulev2 = opacity 1.0 override 1.0 override, class:^(jetbrains-.*)
+
 		# Bindings
 		$mainMod = SUPER
 

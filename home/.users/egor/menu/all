@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nFinder\nCava\nActivity Monitor\nGPU Monitor\nGodot\nVSCode\nCode\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
+COMMAND=$(echo -e "Browser\nMedia Browser\nGimp\nFinder\nCava\nActivity Monitor\nGPU Monitor\nGodot\nCode\nMusic\nVideo\nPass\nSettings\nSystem" | $DMENU -p "Launch:");
 
 case $COMMAND in
   "Browser") librewolf & ;;
@@ -11,8 +11,7 @@ case $COMMAND in
   "Activity Monitor") foot -e btop & ;;
   "GPU Monitor") foot -e nvtop & ;;
   "Godot") godot --rendering-driver opengl3 & ;;
-	"VSCode") GDK_SCALE=2 code --ozone-platform=x11 --disable-gpu-sandbox --ignore-gpu-blacklist --enable-features=CanvasOopRasterization & ;;
-	"Code") foot -c ~/.config/foot/foot-code.ini & ;;
+	"Code") desktop-menu-code & ;;
   "Music") desktop-menu-music & ;;
   "Video") desktop-menu-video & ;;
   "Pass") desktop-menu-pass & ;;
