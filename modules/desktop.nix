@@ -25,16 +25,14 @@
 	};
 
 	hardware = {
+		pulseaudio = {
+			enable = false;
+		};
 		opengl = {
 			enable = true;
 			driSupport = true;
 			driSupport32Bit = true;
 		};
-	};
-
-	programs = {
-    dconf.enable = true;
-		light.enable = true;
 	};
 	
 	services = {
@@ -63,7 +61,8 @@
 
 	xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+		# not required when gnome desktop is used
+    # extraPortals = [pkgs.xdg-desktop-portal-gtk];
     config.common.default = "*";
   };
 

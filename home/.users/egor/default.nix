@@ -9,27 +9,25 @@ let
 	video = pkgs.writeShellScriptBin "desktop-menu-video" (builtins.readFile ./menu/video);
 in {
 	imports = [
-		../../desktop/kde
-
-		(import ../../desktop/hyprland {
-			waybar = "aero";
-			wallpaper = "egor/assets/wallpaper.jpg";
-			lock = "egor/assets/lock.jpg";
-			terminal = "foot";
-			menu = "desktop-menu-all";
-		})
+		# (import ../../desktop/hyprland {
+		# 	waybar = "aero";
+		# 	wallpaper = "egor/assets/wallpaper.jpg";
+		# 	lock = "egor/assets/lock.jpg";
+		# 	terminal = "foot";
+		# 	menu = "desktop-menu-all";
+		# })
 
 		../../programs/lf
 		../../programs/monitor
     ../../programs/qmv
-		../../programs/foot
+		# ../../programs/foot
 		../../programs/helix
-		../../programs/zellij
 		../../programs/jetbrains
 		../../programs/pass.nix
-		../../programs/cava.nix
 		../../programs/mpv.nix
 		../../programs/git.nix
+
+		../../programs/browser.nix
 
 		../../services/gpg.nix
 	  ../../services/mpd.nix
@@ -46,20 +44,13 @@ in {
 		video
 		system
 
-		pavucontrol
 		imagemagick
 		yt-dlp
 		pwgen
-		imv
 		bat
 		trash-cli
 		gimp
-		evince
-		ymuse
     pyload-ng
-
-		firefox
-		librewolf
 
 		wineWowPackages.stable
 		winetricks
@@ -116,11 +107,11 @@ in {
 
 			fish_default_key_bindings
 		'';
-		loginShellInit = ''
-			if test (tty) = /dev/tty1
-				Hyprland
-			end
-		'';
+		# loginShellInit = ''
+		# 	if test (tty) = /dev/tty1
+		# 		Hyprland
+		# 	end
+		# '';
 		functions = {
 			munrar = ''for file in *.rar; unrar e "$file" -p"$argv[1]"; end'';
 		};

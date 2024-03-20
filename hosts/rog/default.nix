@@ -11,6 +11,8 @@
 		../../modules/vpn.nix
 		../../modules/desktop.nix
 		../../modules/fs.nix
+
+		../../home/desktop/gnome.nix
 	];
 
   networking.hostName = "rog";

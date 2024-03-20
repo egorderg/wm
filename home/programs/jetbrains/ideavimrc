@@ -18,6 +18,7 @@ set ideawrite=all
 set idearefactormode=select
 set ideamarks
 set ideajoin
+set visualbell
 
 let mapleader = " "
 
